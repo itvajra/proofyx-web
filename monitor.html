@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Proofyx Script Integrity Monitoring - Monitor scripts on payment pages for PCI DSS 4.0 compliance. Detect unauthorized changes with continuous visibility.">
+    <title>Script Integrity Monitoring - Proofyx</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">
+                <img class="navbar-logo-image" src="assets/images/logo.png" alt="Proofyx">
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/compliance.html">Compliance</a></li>
+                <li><a href="/policy.html">Policy</a></li>
+                <li><a href="/monitor.html" class="active">Monitor</a></li>
+                <li><a href="#" class="btn btn-primary">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Product Hero -->
+    <section class="product-hero">
+        <div class="container">
+            <div class="product-hero-grid">
+                <div class="product-hero-content">
+                    <span class="product-badge animate">Script Integrity Monitoring</span>
+                    <h1 class="animate delay-1">PCI DSS 4.0 Script Integrity Monitoring</h1>
+                    <p class="text-large animate delay-2">
+                        Monitor scripts on payment pages for unauthorized changes. Continuous visibility with logs and
+                        alerts that serve as audit evidence for PCI DSS 4.0 compliance.
+                    </p>
+                    <div class="hero-cta animate delay-3">
+                        <a href="#" class="btn btn-primary btn-large">Launch Monitor App</a>
+                        <a href="#" class="btn btn-secondary btn-large">View Demo</a>
+                    </div>
+                </div>
+                <div class="product-hero-image animate delay-3">
+                    <img src="assets/images/monitor-hero.png" alt="Script Monitoring Dashboard Mockup">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What It Does -->
+    <section class="section">
+        <div class="container">
+            <h2>What It Does</h2>
+            <p class="text-large text-muted" style="max-width: 700px;">
+                Script Integrity Monitoring helps merchants meet PCI DSS 4.0 requirements for monitoring scripts on
+                payment pages. Detect unauthorized changes and maintain audit evidence.
+            </p>
+
+            <ul class="capability-list">
+                <li>
+                    <strong>Monitor Scripts on Payment Pages</strong><br>
+                    <span class="text-muted">Scan payment pages to identify all scripts. Track script sources, content,
+                        and behavior patterns.</span>
+                </li>
+                <li>
+                    <strong>Detect Unauthorized Changes</strong><br>
+                    <span class="text-muted">Alert when scripts change unexpectedly. Identify new scripts, modified
+                        scripts, or suspicious behavior patterns.</span>
+                </li>
+                <li>
+                    <strong>Continuous Visibility</strong><br>
+                    <span class="text-muted">Automated scanning on a schedule you define. Always know what scripts are
+                        running on your payment pages.</span>
+                </li>
+                <li>
+                    <strong>Logs and Alerts as Audit Evidence</strong><br>
+                    <span class="text-muted">All scans, detections, and alerts are logged with timestamps. Export logs
+                        for PCI DSS assessors.</span>
+                </li>
+                <li>
+                    <strong>Risk Scoring</strong><br>
+                    <span class="text-muted">Scripts are analyzed for risky behaviors (form field access, network
+                        requests, obfuscation). Clear risk indicators help prioritize investigation.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- PCI DSS 4.0 Context -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2>PCI DSS 4.0 Requirement</h2>
+            <p class="text-large text-muted" style="max-width: 700px;">
+                PCI DSS 4.0 requires merchants to manage and monitor scripts on payment pages to prevent unauthorized
+                data access. Proofyx provides the monitoring and evidence needed.
+            </p>
+
+            <div class="feature-list" style="margin-top: var(--space-2xl);">
+                <div class="feature-item">
+                    <div class="feature-icon">📋</div>
+                    <div class="feature-content">
+                        <h4>Requirement 6.4.3 & 11.6.1</h4>
+                        <p>PCI DSS 4.0 requires script inventory and integrity monitoring. Proofyx automates both.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-content">
+                        <h4>Script Inventory</h4>
+                        <p>Maintain a current inventory of all scripts on payment pages. Know what's authorized and
+                            what's not.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">⚠️</div>
+                    <div class="feature-content">
+                        <h4>Change Detection</h4>
+                        <p>Detect when scripts change or new scripts appear. Alert security teams to investigate.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-content">
+                        <h4>Audit Evidence</h4>
+                        <p>Logs and reports demonstrate continuous monitoring to PCI DSS assessors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+        <div class="container">
+            <h2>How It Works</h2>
+
+            <div class="feature-list" style="margin-top: var(--space-2xl);">
+                <div class="feature-item">
+                    <div class="feature-icon" style="color: var(--risk-red);">1</div>
+                    <div class="feature-content">
+                        <h4>Define Payment Pages</h4>
+                        <p>Specify which pages handle payment data. These are the pages that will be monitored.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon" style="color: var(--risk-red);">2</div>
+                    <div class="feature-content">
+                        <h4>Automated Scanning</h4>
+                        <p>Proofyx scans payment pages on your schedule. Identifies all scripts and analyzes their
+                            behavior.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon" style="color: var(--risk-red);">3</div>
+                    <div class="feature-content">
+                        <h4>Behavioral Analysis</h4>
+                        <p>Scripts are analyzed for risky patterns: form field access, network requests, obfuscation,
+                            and more.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon" style="color: var(--risk-red);">4</div>
+                    <div class="feature-content">
+                        <h4>Change Detection</h4>
+                        <p>Compare current scan to previous scans. Alert when scripts change or new scripts appear.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon" style="color: var(--risk-red);">5</div>
+                    <div class="feature-content">
+                        <h4>Review and Respond</h4>
+                        <p>Investigate alerts, approve authorized changes, and block unauthorized scripts.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon" style="color: var(--risk-red);">6</div>
+                    <div class="feature-content">
+                        <h4>Export Evidence</h4>
+                        <p>Generate reports showing continuous monitoring activity for PCI DSS assessors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detection Capabilities -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2>What We Detect</h2>
+            <p class="text-large text-muted" style="max-width: 700px; margin-bottom: var(--space-3xl);">
+                Proofyx analyzes scripts for behaviors that may indicate unauthorized data access or malicious activity.
+            </p>
+
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">⚠️</div>
+                    <div class="feature-content">
+                        <h4>Form Field Access</h4>
+                        <p>Detects scripts that read form fields, especially payment-related fields (card numbers, CVV,
+                            etc.).</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">⚠️</div>
+                    <div class="feature-content">
+                        <h4>Network Requests</h4>
+                        <p>Identifies scripts making external network requests. Flags unexpected destinations.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">⚠️</div>
+                    <div class="feature-content">
+                        <h4>Obfuscation</h4>
+                        <p>Detects obfuscated or minified code that may hide malicious intent.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">⚠️</div>
+                    <div class="feature-content">
+                        <h4>DOM Manipulation</h4>
+                        <p>Tracks scripts that modify page structure, which could be used to inject skimmers.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">⚠️</div>
+                    <div class="feature-content">
+                        <h4>Event Listeners</h4>
+                        <p>Identifies scripts hooking into form submission or input events.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">⚠️</div>
+                    <div class="feature-content">
+                        <h4>Storage Access</h4>
+                        <p>Detects use of localStorage, sessionStorage, or cookies that could store payment data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audit Evidence -->
+    <section class="section">
+        <div class="container">
+            <h2>Logs and Alerts as Audit Evidence</h2>
+            <p class="text-large text-muted" style="max-width: 700px; margin-bottom: var(--space-3xl);">
+                PCI DSS assessors need proof of continuous monitoring. Proofyx provides timestamped logs and reports.
+            </p>
+
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">📝</div>
+                    <div class="feature-content">
+                        <h4>Scan Logs</h4>
+                        <p>Every scan is logged with timestamp, page URL, scripts found, and risk scores.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔔</div>
+                    <div class="feature-content">
+                        <h4>Alert History</h4>
+                        <p>All alerts are preserved with details of what changed and when it was detected.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-content">
+                        <h4>Compliance Reports</h4>
+                        <p>Generate reports showing monitoring frequency, coverage, and response to alerts.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <div class="feature-content">
+                        <h4>Immutable Logs</h4>
+                        <p>Logs cannot be modified retroactively. Assessors can trust the integrity of the evidence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-section">
+                <h2>Ready to Monitor Scripts?</h2>
+                <p>Start meeting PCI DSS 4.0 script integrity monitoring requirements.</p>
+                <a href="#" class="btn btn-primary btn-large">Launch Monitor App</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Proofyx</h3>
+                    <p>Enterprise compliance platform focused on creating, managing, and proving compliance.</p>
+                    <p style="margin-top: var(--space-lg);">Compliance is not complete until you can prove it.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="/compliance.html">Compliance Management</a></li>
+                        <li><a href="/policy.html">Policy Management</a></li>
+                        <li><a href="/monitor.html">Script Integrity Monitoring</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">PCI DSS 4.0</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Proofyx. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
