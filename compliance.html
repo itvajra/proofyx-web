@@ -5,8 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Proofyx Compliance Management - Track compliance requirements and controls with clear pass/fail visibility. Maintain audit evidence for PCI DSS and future frameworks.">
+        content="Proofyx Compliance Management - Guide and track compliance requirements and controls with clear pass/fail visibility. Maintain audit evidence for CMMC 2.0 Level 1 and Level 2, with expandable support for additional frameworks.">
     <title>Compliance Management - Proofyx</title>
+    <script>
+        (() => {
+            const apex = 'proofyx.com';
+            const www = 'www.proofyx.com';
+            if (window.location.hostname === apex) {
+                window.location.replace(
+                    `${window.location.protocol}//${www}${window.location.pathname}${window.location.search}${window.location.hash}`
+                );
+            }
+        })();
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +42,6 @@
                 <li><a href="/compliance.html" class="active">Compliance</a></li>
                 <li><a href="/policy.html">Policy</a></li>
                 <li><a href="/monitor.html">Monitor</a></li>
-                <li><a href="#" class="btn btn-primary">Get Started</a></li>
             </ul>
         </div>
     </nav>
@@ -42,10 +52,10 @@
             <div class="product-hero-grid">
                 <div class="product-hero-content">
                     <span class="product-badge animate">Compliance Management</span>
-                    <h1 class="animate delay-1">Track Compliance and Maintain Audit Readiness</h1>
+                    <h1 class="animate delay-1">Guide and Track Compliance with Confidence</h1>
                     <p class="text-large animate delay-2">
-                        Proofyx Compliance Management helps you track requirements and controls with clear pass/fail
-                        visibility, backed by verifiable evidence.
+                        Proofyx Compliance Management guides you through requirements and controls with clear
+                        pass/fail visibility, backed by verifiable evidence.
                     </p>
                     <div class="hero-cta animate delay-3">
                         <a href="#" class="btn btn-primary btn-large">Launch Compliance App</a>
@@ -64,16 +74,16 @@
         <div class="container">
             <h2>What It Does</h2>
             <p class="text-large text-muted" style="max-width: 700px;">
-                Compliance Management provides a structured approach to tracking compliance requirements, implementing
-                controls, and maintaining the evidence needed for audits.
+                Compliance Management provides a structured approach to guiding and tracking compliance requirements,
+                implementing controls, and maintaining the evidence needed for audits.
             </p>
 
             <ul class="capability-list">
                 <li>
-                    <strong>Track Requirements and Controls</strong><br>
-                    <span class="text-muted">Organize compliance requirements by framework (currently PCI DSS, with
-                        future frameworks expandable). Map controls to requirements and track implementation
-                        status.</span>
+                    <strong>Guides and Tracks Requirements and Controls</strong><br>
+                    <span class="text-muted">Organize requirements by framework (currently focused on CMMC 2.0 Level 1
+                        and Level 2, with future frameworks expandable). Map controls to requirements, get guided next
+                        steps, and track implementation status.</span>
                 </li>
                 <li>
                     <strong>Clear Pass/Fail Status</strong><br>
@@ -102,19 +112,19 @@
     <!-- Current Focus -->
     <section class="section section-alt">
         <div class="container">
-            <h2>Current Focus: PCI DSS</h2>
+            <h2>Current Focus: CMMC 2.0</h2>
             <p class="text-large text-muted" style="max-width: 700px;">
-                Proofyx Compliance Management currently focuses on PCI DSS requirements, with architecture designed to
-                support additional frameworks in the future.
+                Proofyx Compliance Management currently focuses on CMMC 2.0 Level 1 and Level 2, with architecture
+                designed to support additional frameworks in the future.
             </p>
 
             <div class="feature-list" style="margin-top: var(--space-2xl);">
                 <div class="feature-item">
                     <div class="feature-icon">✓</div>
                     <div class="feature-content">
-                        <h4>PCI DSS Requirements</h4>
-                        <p>All 12 PCI DSS requirements organized and ready to track. Map your controls to specific
-                            requirements.</p>
+                        <h4>CMMC 2.0 Levels</h4>
+                        <p>Track requirements aligned to CMMC 2.0 Level 1 and Level 2. Map your controls to specific
+                            requirements and monitor progress.</p>
                     </div>
                 </div>
 
@@ -131,7 +141,7 @@
                     <div class="feature-icon">✓</div>
                     <div class="feature-content">
                         <h4>Framework Expandable</h4>
-                        <p>Architecture supports future frameworks. PCI DSS is the starting point, not the limit.</p>
+                        <p>Architecture supports future frameworks. CMMC is the starting point, not the limit.</p>
                     </div>
                 </div>
             </div>
@@ -142,7 +152,7 @@
     <section class="section">
         <div class="container">
             <h2>The Proof Concept</h2>
-            <p class="text-large text-muted" style="max-width: 700px; margin-bottom: var(--space-3xl);">
+            <p class="text-large text-muted" style="margin-bottom: var(--space-3xl);">
                 Compliance is not complete until you can prove it. Every control in Proofyx requires evidence.
             </p>
 
@@ -196,7 +206,8 @@
                     <div class="feature-icon" style="color: var(--trust-blue);">1</div>
                     <div class="feature-content">
                         <h4>Select Your Framework</h4>
-                        <p>Start with PCI DSS. All requirements are pre-loaded and organized by category.</p>
+                        <p>Start with CMMC 2.0. Requirements are organized by level and domain to keep implementation
+                            clear.</p>
                     </div>
                 </div>
 
@@ -280,7 +291,7 @@
                     <h4>Resources</h4>
                     <ul>
                         <li><a href="#">Documentation</a></li>
-                        <li><a href="#">PCI DSS 4.0</a></li>
+                        <li><a href="#">CMMC 2.0</a></li>
                         <li><a href="#">Support</a></li>
                     </ul>
                 </div>

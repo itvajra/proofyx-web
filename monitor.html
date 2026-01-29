@@ -7,6 +7,17 @@
     <meta name="description"
         content="Proofyx Script Integrity Monitoring - Monitor scripts on payment pages for PCI DSS 4.0 compliance. Detect unauthorized changes with continuous visibility.">
     <title>Script Integrity Monitoring - Proofyx</title>
+    <script>
+        (() => {
+            const apex = 'proofyx.com';
+            const www = 'www.proofyx.com';
+            if (window.location.hostname === apex) {
+                window.location.replace(
+                    `${window.location.protocol}//${www}${window.location.pathname}${window.location.search}${window.location.hash}`
+                );
+            }
+        })();
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +42,6 @@
                 <li><a href="/compliance.html">Compliance</a></li>
                 <li><a href="/policy.html">Policy</a></li>
                 <li><a href="/monitor.html" class="active">Monitor</a></li>
-                <li><a href="#" class="btn btn-primary">Get Started</a></li>
             </ul>
         </div>
     </nav>

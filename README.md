@@ -10,7 +10,7 @@ Proofyx is an enterprise compliance platform focused on creating, managing, and 
 
 ## Platform Components
 
-1. **Compliance Management** - Track requirements and controls with clear pass/fail visibility
+1. **Compliance Management** - Guide and track requirements and controls with clear pass/fail visibility
 2. **Policy Management** - Create, manage, and approve policies with full versioning
 3. **Script Integrity Monitoring** - PCI DSS 4.0 script integrity monitoring for payment pages
 

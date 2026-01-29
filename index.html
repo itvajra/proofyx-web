@@ -5,8 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Proofyx - Compliance simplified. Enterprise compliance platform for managing compliance, policies, and PCI DSS script integrity monitoring.">
+    content="Proofyx - Proof simplified. Enterprise proof platform for managing compliance, policies, and script monitoring.">
   <title>Proofyx - Enterprise Compliance Platform | Audit-Ready Proof</title>
+  <script>
+    (() => {
+      const apex = 'proofyx.com';
+      const www = 'www.proofyx.com';
+      if (window.location.hostname === apex) {
+        window.location.replace(
+          `${window.location.protocol}//${www}${window.location.pathname}${window.location.search}${window.location.hash}`
+        );
+      }
+    })();
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +42,6 @@
         <li><a href="/compliance.html">Compliance</a></li>
         <li><a href="/policy.html">Policy</a></li>
         <li><a href="/monitor.html">Monitor</a></li>
-        <li><a href="#" class="btn btn-primary">Get Started</a></li>
       </ul>
     </div>
   </nav>
@@ -41,18 +51,17 @@
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <h1 class="animate">Compliance Simplified.</h1>
+          <h1 class="animate">Proof Simplified.</h1>
           <p class="hero-subtitle animate delay-1">
-            Manage compliance, policies, and PCI DSS script integrity monitoring in one evidence-first platform.
+            Manage compliance, policies, and monitoring in one ecosystem.
           </p>
           <div class="hero-cta animate delay-2">
-            <a href="#contact" class="btn btn-primary btn-large">Get Started</a>
-            <a href="#platform" class="btn btn-secondary btn-large">View Platform</a>
+            <a href="#platform" class="btn btn-primary btn-large">Get Started</a>
           </div>
         </div>
         <div class="hero-image animate delay-3">
           <img src="assets/images/home-hero.png"
-            alt="Proofyx Dashboard Mockup - Compliance Controls, Policy Status, and Script Integrity Monitoring">
+            alt="Proofyx Dashboard Mockup - Compliance Controls, Policy Status, and Script Monitoring">
         </div>
       </div>
     </div>
@@ -61,48 +70,72 @@
   <!-- Platform Overview -->
   <section id="platform" class="section">
     <div class="container">
-      <h2 style="text-align: center; margin-bottom: var(--space-3xl);">The Proofyx Platform</h2>
+      <div style="text-align: center; margin-bottom: var(--space-3xl);">
+        <h2 style="margin-bottom: var(--space-md);">Choose Your Starting Point</h2>
+        <p class="text-large text-muted" style="max-width: 700px; margin: 0 auto;">
+          Select the product that best fits your needs. Each application is designed to help you build audit-ready
+          proof.
+        </p>
+      </div>
 
       <div class="product-grid">
         <!-- Compliance Management -->
         <div class="product-card card-compliance">
-          <div class="product-card-icon icon-compliance">
-            <span>✓</span>
+          <div class="product-card-header">
+            <div class="product-card-icon icon-compliance">
+              <span>✓</span>
+            </div>
+            <div class="product-card-pill pill-compliance">FOUNDATION · Controls & Evidence</div>
           </div>
           <h3>Compliance Management</h3>
-          <p>Track requirements and controls with clear pass/fail visibility. Maintain audit evidence for PCI DSS and
-            future frameworks.</p>
+          <p class="product-card-value">Guide and track compliance requirements into audit-ready proof.</p>
+          <ul class="product-card-list">
+            <li><b>Guided</b> control mapping (CMMC 2.0 & future frameworks)</li>
+            <li><b>Real-time</b> compliance status tracking</li>
+          </ul>
           <div class="product-card-actions">
+            <a href="https://compliance.proofyx.com" class="product-card-link primary-compliance">Get Started</a>
             <a href="/compliance.html" class="product-card-link secondary">Learn More</a>
-            <a href="https://compliance.proofyx.com" class="product-card-link">Launch App</a>
           </div>
         </div>
 
         <!-- Policy Management -->
         <div class="product-card card-policy">
-          <div class="product-card-icon icon-policy">
-            <span>📋</span>
+          <div class="product-card-header">
+            <div class="product-card-icon icon-policy">
+              <span>📋</span>
+            </div>
+            <div class="product-card-pill pill-policy">GOVERNANCE · Policies & Accountability</div>
           </div>
           <h3>Policy Management</h3>
-          <p>Create, manage, and approve policies with full versioning and audit history. Map policies to compliance
-            requirements.</p>
+          <p class="product-card-value">Define intent. Enforce accountability. Prove alignment.</p>
+          <ul class="product-card-list">
+            <li><b>Policy lifecycle</b> (Author, Approve, Version)</li>
+            <li><b>Full audit history</b> and ownership tracking</li>
+          </ul>
           <div class="product-card-actions">
+            <a href="https://policy.proofyx.com" class="product-card-link primary-policy">Get Started</a>
             <a href="/policy.html" class="product-card-link secondary">Learn More</a>
-            <a href="https://policy.proofyx.com" class="product-card-link">Launch App</a>
           </div>
         </div>
 
-        <!-- Script Integrity Monitoring -->
+        <!-- Integrity Monitoring -->
         <div class="product-card card-monitor">
-          <div class="product-card-icon icon-monitor">
-            <span>🔍</span>
+          <div class="product-card-header">
+            <div class="product-card-icon icon-monitor">
+              <span>🔍</span>
+            </div>
+            <div class="product-card-pill pill-monitor">MONITORING · Scripts & Integrity</div>
           </div>
-          <h3>Script Integrity Monitoring</h3>
-          <p>Monitor scripts on payment pages for PCI DSS 4.0 compliance. Detect unauthorized changes with continuous
-            visibility.</p>
+          <h3>Integrity Monitoring</h3>
+          <p class="product-card-value">Prove what executes — and when it changes.</p>
+          <ul class="product-card-list">
+            <li><b>Script monitoring</b> for web applications</li>
+            <li><b>Change detection</b> for unauthorized modifications</li>
+          </ul>
           <div class="product-card-actions">
+            <a href="https://monitor.proofyx.com" class="product-card-link primary-monitor">Get Started</a>
             <a href="/monitor.html" class="product-card-link secondary">Learn More</a>
-            <a href="https://monitor.proofyx.com" class="product-card-link">Launch App</a>
           </div>
         </div>
       </div>
@@ -193,7 +226,7 @@
 
         <div class="audience-item">
           <div class="audience-item-icon">💳</div>
-          <h4>PCI DSS Merchants</h4>
+          <h4>Fintech & Payments</h4>
         </div>
 
         <div class="audience-item">
@@ -244,7 +277,7 @@
               style="width: 100%; padding: var(--space-md); border: 1px solid var(--neutral-200); border-radius: var(--radius-md); background: white;">
               <option>Compliance Management</option>
               <option>Policy Management</option>
-              <option>Script Integrity Monitoring</option>
+              <option>Script Monitoring</option>
               <option>Full Platform</option>
             </select>
           </div>
@@ -281,7 +314,7 @@
           <ul>
             <li><a href="/compliance.html">Compliance Management</a></li>
             <li><a href="/policy.html">Policy Management</a></li>
-            <li><a href="/monitor.html">Script Integrity Monitoring</a></li>
+            <li><a href="/monitor.html">Script Monitoring</a></li>
           </ul>
         </div>
 
@@ -298,7 +331,7 @@
           <h4>Resources</h4>
           <ul>
             <li><a href="#">Documentation</a></li>
-            <li><a href="#">PCI DSS 4.0</a></li>
+            <li><a href="#">Compliance Guidance</a></li>
             <li><a href="#">Support</a></li>
           </ul>
         </div>
@@ -309,6 +342,9 @@
       </div>
     </div>
   </footer>
+
+  <!-- Smooth Scroll -->
+  <script src="smooth-scroll.js"></script>
 </body>
 
 </html>

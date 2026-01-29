@@ -7,6 +7,17 @@
     <meta name="description"
         content="Proofyx Policy Management - Create, manage, and approve policies with full versioning and audit history. Map policies to compliance requirements.">
     <title>Policy Management - Proofyx</title>
+    <script>
+        (() => {
+            const apex = 'proofyx.com';
+            const www = 'www.proofyx.com';
+            if (window.location.hostname === apex) {
+                window.location.replace(
+                    `${window.location.protocol}//${www}${window.location.pathname}${window.location.search}${window.location.hash}`
+                );
+            }
+        })();
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +42,6 @@
                 <li><a href="/compliance.html">Compliance</a></li>
                 <li><a href="/policy.html" class="active">Policy</a></li>
                 <li><a href="/monitor.html">Monitor</a></li>
-                <li><a href="#" class="btn btn-primary">Get Started</a></li>
             </ul>
         </div>
     </nav>
@@ -49,7 +59,7 @@
                         requirements and maintain evidence of approval and acknowledgment.
                     </p>
                     <div class="hero-cta animate delay-3">
-                        <a href="#" class="btn btn-primary btn-large">Launch Policy App</a>
+                        <a href="https://policy.proofyx.com" class="btn btn-primary btn-large">Launch Policy App</a>
                         <a href="#" class="btn btn-secondary btn-large">View Demo</a>
                     </div>
                 </div>
