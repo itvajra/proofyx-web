@@ -248,42 +248,49 @@
     </div>
   </section>
 
-  <!-- Request Demo Section -->
+  <!-- Contact Section -->
   <section id="contact" class="section section-dark">
     <div class="container" style="max-width: 800px;">
       <div style="text-align: center; margin-bottom: var(--space-3xl);">
-        <h2>Start Building Audit-Ready Proof</h2>
-        <p>Schedule a demo with our compliance experts or start your free trial.</p>
+        <h2>Get in Touch</h2>
+        <p>Have questions about Proof✓x? Our team is here to help you build audit-ready proof.</p>
       </div>
 
       <div
         style="background: var(--neutral-0); padding: var(--space-3xl); border-radius: var(--radius-lg); color: var(--neutral-800); box-shadow: var(--shadow-lg);">
-        <form>
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="5989ec4a-5f3c-49f0-bed7-a91b2d655148">
+          <input type="hidden" name="subject" value="New Contact Message from Proof✓x">
+          <input type="hidden" name="from_name" value="Proof✓x Website">
+          
           <div
             style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg); margin-bottom: var(--space-lg);">
-            <div>
-              <label style="display: block; margin-bottom: var(--space-xs); font-weight: 600;">Work Email</label>
-              <input type="email" placeholder="name@company.com"
-                style="width: 100%; padding: var(--space-md); border: 1px solid var(--neutral-200); border-radius: var(--radius-md);">
+            <div class="form-group">
+              <label class="form-label">Full Name</label>
+              <input type="text" name="name" class="form-input" required placeholder="Jane Doe">
             </div>
-            <div>
-              <label style="display: block; margin-bottom: var(--space-xs); font-weight: 600;">Full Name</label>
-              <input type="text" placeholder="Jane Doe"
-                style="width: 100%; padding: var(--space-md); border: 1px solid var(--neutral-200); border-radius: var(--radius-md);">
+            <div class="form-group">
+              <label class="form-label">Work Email</label>
+              <input type="email" name="email" class="form-input" required placeholder="name@company.com">
             </div>
           </div>
-          <div style="margin-bottom: var(--space-xl);">
-            <label style="display: block; margin-bottom: var(--space-xs); font-weight: 600;">Interested Module</label>
-            <select
-              style="width: 100%; padding: var(--space-md); border: 1px solid var(--neutral-200); border-radius: var(--radius-md); background: white;">
-              <option>Compliance Management</option>
-              <option>Policy Management</option>
-
-              <option>Full Platform</option>
+          
+          <div class="form-group">
+            <label class="form-label">Topic</label>
+            <select name="topic" class="form-select">
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Demo Request">Demo Request</option>
+              <option value="Support">Technical Support</option>
+              <option value="Partnership">Partnership</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary btn-large" style="width: 100%; justify-content: center;">Request
-            Demo</button>
+
+          <div class="form-group" style="margin-bottom: var(--space-xl);">
+            <label class="form-label">Message</label>
+            <textarea name="message" class="form-textarea" required placeholder="How can we help you?"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-large" style="width: 100%; justify-content: center;">Send Message</button>
         </form>
       </div>
     </div>
