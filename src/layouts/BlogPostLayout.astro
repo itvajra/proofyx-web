@@ -33,6 +33,7 @@ const canonicalShareURL = new URL(Astro.url.pathname, Astro.site).href;
   description={description} 
   seoTitle={seoTitle} 
   seoDescription={seoDescription}
+  image={image?.src}
   ogType="article"
 >
   <article class="py-12 md:py-20">

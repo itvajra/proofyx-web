@@ -9,7 +9,6 @@ interface Props {
   seoTitle?: string;
   seoDescription?: string;
   image?: string;
-  canonicalURL?: string;
   ogType?: string;
 }
 
@@ -19,12 +18,13 @@ const {
   seoTitle,
   seoDescription,
   image = "/og-image.png",
-  canonicalURL = Astro.url.href,
   ogType = "website"
 } = Astro.props;
 
 const metaTitle = seoTitle || `${title} | Proofyx`;
 const metaDescription = seoDescription || description;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
@@ -40,18 +40,24 @@ const metaDescription = seoDescription || description;
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="Proofyx" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content={ogType} />
-    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={metaTitle} />
     <meta property="og:description" content={metaDescription} />
-    <meta property="og:image" content={new URL(image, Astro.url)} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={metaTitle} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={Astro.url.href} />
+    <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={metaTitle} />
     <meta property="twitter:description" content={metaDescription} />
-    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+    <meta property="twitter:image" content={socialImageURL} />
+    <meta property="twitter:image:alt" content={metaTitle} />
   </head>
   <body class="min-h-screen flex flex-col">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:bg-white focus:text-proofyx-blue focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-proofyx-blue font-bold">Skip to content</a>
