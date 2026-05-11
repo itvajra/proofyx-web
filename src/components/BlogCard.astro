@@ -1,0 +1,66 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  category: string;
+  readingTime: string;
+  slug: string;
+  isFeatured?: boolean;
+}
+
+const { title, description, pubDate, category, readingTime, slug, isFeatured = false } = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(pubDate);
+---
+
+<article class:list={[
+  "bg-white border border-neutral-200 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-enterprise-hover group",
+  isFeatured ? "md:grid md:grid-cols-2 gap-8 p-0" : "flex flex-col h-full"
+]}>
+  {isFeatured && (
+    <div class="bg-neutral-100 aspect-video md:aspect-auto flex items-center justify-center overflow-hidden">
+      <div class="text-neutral-400 font-bold text-4xl opacity-20 group-hover:scale-110 transition-transform duration-500">PROOFYX</div>
+    </div>
+  )}
+  
+  <div class:list={[
+    "p-8 flex flex-col h-full",
+    isFeatured ? "justify-center" : ""
+  ]}>
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-xs font-bold uppercase tracking-wider text-proofyx-blue px-2.5 py-1 bg-proofyx-blue-light rounded">
+        {category}
+      </span>
+      <span class="text-neutral-400 text-xs">•</span>
+      <time datetime={pubDate.toISOString()} class="text-neutral-500 text-xs">{formattedDate}</time>
+    </div>
+
+    <h3 class:list={[
+      "font-bold text-neutral-900 group-hover:text-proofyx-blue transition-colors mb-4 leading-tight",
+      isFeatured ? "text-3xl md:text-4xl" : "text-xl"
+    ]}>
+      <a href={`/blog/${slug}`} class="no-underline">
+        {title}
+      </a>
+    </h3>
+
+    <p class:list={[
+      "text-neutral-600 mb-8 line-clamp-3",
+      isFeatured ? "text-lg" : "text-sm"
+    ]}>
+      {description}
+    </p>
+
+    <div class="mt-auto flex items-center justify-between">
+      <span class="text-neutral-500 text-xs font-medium">{readingTime}</span>
+      <a href={`/blog/${slug}`} class="text-proofyx-blue text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+        Read More <span>→</span>
+      </a>
+    </div>
+  </div>
+</article>

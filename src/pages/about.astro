@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<BaseLayout title="About Proofyx" description="Learn about Proofyx and our mission to simplify compliance and policy management for enterprise organizations.">
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center mb-20">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-neutral-900">Our Mission</h1>
+        <p class="text-xl text-neutral-600 leading-relaxed">
+          At Proofyx, we believe that compliance should be a source of confidence, not a burden. We build tools that help organizations move from manual checklists to automated, audit-ready proof.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-16 items-center mb-24">
+        <div>
+          <h2 class="text-3xl font-bold mb-6">Built for High-Stakes Compliance</h2>
+          <p class="text-lg text-neutral-600 mb-8">
+            Whether you are a government contractor preparing for CMMC 2.0 or a fast-growing SaaS company managing SOC 2 requirements, Proofyx provides the infrastructure you need to succeed.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-proofyx-blue rounded-full"></div>
+              <p class="font-bold text-neutral-900">Audit-Ready Evidence Library</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-proofyx-blue rounded-full"></div>
+              <p class="font-bold text-neutral-900">End-to-End Policy Lifecycle</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-2 h-2 bg-proofyx-blue rounded-full"></div>
+              <p class="font-bold text-neutral-900">Automated Framework Mapping</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-neutral-50 rounded-2xl p-12 aspect-video flex items-center justify-center">
+           <div class="text-neutral-300 font-bold text-5xl opacity-20 uppercase tracking-widest">About Proofyx</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <CTASection />
+</BaseLayout>

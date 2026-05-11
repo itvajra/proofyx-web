@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import CTASection from '../components/CTASection.astro';
+import ContactForm from '../components/ContactForm.astro';
+import DashboardMockup from '../components/DashboardMockup.astro';
+
+const features = [
+  {
+    title: "Audit-Ready Evidence",
+    description: "Centralize your proof with automated collection and mapping to major frameworks.",
+    icon: "🛡️"
+  },
+  {
+    title: "Policy Lifecycle",
+    description: "Manage policies from creation to retirement with full version control and audit logs.",
+    icon: "📋"
+  },
+  {
+    title: "Framework Mapping",
+    description: "Map evidence once and apply it across CMMC, NIST, SOC2, and more.",
+    icon: "🗺️"
+  }
+];
+---
+
+<BaseLayout title="Home">
+  <!-- Hero Section -->
+  <section class="relative bg-[#0a1929] pt-32 pb-48 overflow-hidden">
+    <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-8 leading-tight">
+          Compliance Proof <br /><span class="text-proofyx-blue-light">Built for Audits.</span>
+        </h1>
+        <p class="text-xl text-white/80 mb-10 leading-relaxed max-w-xl">
+          Move beyond spreadsheets. Proofyx centralizes your evidence, policies, and compliance workflows for organizations that can't afford to fail an audit.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <button onclick="document.getElementById('get-started').scrollIntoView({behavior: 'smooth'})" class="bg-proofyx-blue text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-proofyx-blue-dark transition-all">Get Started</button>
+          <Button href="/compliance" variant="outline" size="lg" class="!border-white/20 !text-white hover:!bg-white/10">Explore Compliance</Button>
+        </div>
+      </div>
+      <div class="hidden md:block">
+        <DashboardMockup />
+      </div>
+    </div>
+    
+    <!-- Background Decor -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-proofyx-blue/20 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-proofyx-green/10 rounded-full blur-3xl"></div>
+  </section>
+
+  <!-- Feature Grid -->
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Enterprise Compliance Management</h2>
+        <p class="text-neutral-600 max-w-2xl mx-auto text-lg">
+          Everything you need to manage your compliance posture and policy lifecycle in one unified platform.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-12">
+        {features.map(feature => (
+          <div class="group p-8 rounded-xl border border-neutral-100 bg-neutral-50 hover:bg-white hover:shadow-enterprise-hover hover:border-proofyx-blue/20 transition-all duration-300">
+            <div class="text-4xl mb-6">{feature.icon}</div>
+            <h3 class="text-xl font-bold mb-4 group-hover:text-proofyx-blue transition-colors">{feature.title}</h3>
+            <p class="text-neutral-600 leading-relaxed">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Choose Your Starting Point Section -->
+  <section id="get-started" class="py-24 bg-neutral-50 scroll-mt-20">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Choose Your Starting Point</h2>
+        <p class="text-neutral-600 max-w-2xl mx-auto text-lg">
+          Select the product that best fits your needs. Each application is designed to help you build audit-ready proof.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Compliance Card -->
+        <div class="bg-white border border-neutral-200 rounded-2xl p-10 hover:shadow-enterprise-hover transition-all group relative overflow-hidden flex flex-col">
+          <div class="absolute top-0 left-0 w-full h-1 bg-proofyx-blue"></div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-proofyx-blue-light text-proofyx-blue rounded flex items-center justify-center font-bold">✓</div>
+            <span class="text-xs font-bold text-proofyx-blue uppercase tracking-widest">FOUNDATION · Controls & Evidence</span>
+          </div>
+          <h3 class="text-3xl font-bold mb-6">Compliance Management</h3>
+          <p class="text-neutral-600 mb-8 text-lg">
+            Guide and track compliance requirements into audit-ready proof.
+          </p>
+          <ul class="space-y-3 mb-10 flex-grow">
+            <li class="flex items-start gap-3 text-neutral-700">
+              <span class="text-proofyx-blue font-bold">•</span>
+              <span><b>Guided</b> control mapping (CMMC 2.0 & future frameworks)</span>
+            </li>
+            <li class="flex items-start gap-3 text-neutral-700">
+              <span class="text-proofyx-blue font-bold">•</span>
+              <span><b>Real-time</b> compliance status tracking</span>
+            </li>
+          </ul>
+          <div class="flex gap-4">
+            <Button href="https://compliance.proofyx.com" class="flex-grow">Get Started</Button>
+            <Button href="/compliance" variant="outline" class="flex-grow">Learn More</Button>
+          </div>
+        </div>
+
+        <!-- Policy Card -->
+        <div class="bg-white border border-neutral-200 rounded-2xl p-10 hover:shadow-enterprise-hover transition-all group relative overflow-hidden flex flex-col">
+          <div class="absolute top-0 left-0 w-full h-1 bg-proofyx-green"></div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 bg-proofyx-green/10 text-proofyx-green rounded flex items-center justify-center font-bold">📋</div>
+            <span class="text-xs font-bold text-proofyx-green uppercase tracking-widest">GOVERNANCE · Policies & Accountability</span>
+          </div>
+          <h3 class="text-3xl font-bold mb-6">Policy Management</h3>
+          <p class="text-neutral-600 mb-8 text-lg">
+            Define intent. Enforce accountability. Prove alignment.
+          </p>
+          <ul class="space-y-3 mb-10 flex-grow">
+            <li class="flex items-start gap-3 text-neutral-700">
+              <span class="text-proofyx-green font-bold">•</span>
+              <span><b>Policy lifecycle</b> (Author, Approve, Version)</span>
+            </li>
+            <li class="flex items-start gap-3 text-neutral-700">
+              <span class="text-proofyx-green font-bold">•</span>
+              <span><b>Full audit history</b> and ownership tracking</span>
+            </li>
+          </ul>
+          <div class="flex gap-4">
+            <Button href="https://policy.proofyx.com" class="flex-grow !bg-proofyx-green hover:!bg-green-700">Get Started</Button>
+            <Button href="/policy" variant="outline" class="flex-grow !border-proofyx-green !text-proofyx-green hover:!bg-proofyx-green/5">Learn More</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">Get in Touch</h2>
+          <p class="text-xl text-neutral-600 mb-8 leading-relaxed">
+            Have questions about Proofyx? Our team of compliance experts is here to help you build audit-ready proof and streamline your policy lifecycle.
+          </p>
+          
+          <div class="space-y-6">
+            <div class="flex items-center gap-4 text-neutral-700">
+              <div class="w-10 h-10 bg-proofyx-blue-light text-proofyx-blue rounded-full flex items-center justify-center shrink-0">✓</div>
+              <p>Demo requests and walkthroughs</p>
+            </div>
+            <div class="flex items-center gap-4 text-neutral-700">
+              <div class="w-10 h-10 bg-proofyx-blue-light text-proofyx-blue rounded-full flex items-center justify-center shrink-0">✓</div>
+              <p>Framework guidance (CMMC, NIST, SOC2)</p>
+            </div>
+            <div class="flex items-center gap-4 text-neutral-700">
+              <div class="w-10 h-10 bg-proofyx-blue-light text-proofyx-blue rounded-full flex items-center justify-center shrink-0">✓</div>
+              <p>Enterprise support and onboarding</p>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

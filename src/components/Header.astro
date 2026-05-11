@@ -1,0 +1,38 @@
+---
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Compliance', href: '/compliance' },
+  { name: 'Policy', href: '/policy' },
+  { name: 'Blog', href: '/blog' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-200">
+  <div class="container mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="/" class="flex items-center no-underline">
+      <img src="/images/logo.png" alt="Proofyx" class="h-10 w-auto" />
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8">
+      {navLinks.map(link => (
+        <a 
+          href={link.href}
+          class:list={[
+            "text-sm font-medium transition-colors hover:text-proofyx-blue relative py-2",
+            currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) 
+              ? "text-proofyx-blue after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-proofyx-blue" 
+              : "text-neutral-600"
+          ]}
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <a href="/#get-started" class="bg-proofyx-blue text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-proofyx-blue-dark transition-all">Get Started</a>
+    </div>
+  </div>
+</header>

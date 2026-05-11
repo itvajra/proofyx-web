@@ -1,0 +1,61 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  image?: string;
+  canonicalURL?: string;
+}
+
+const { 
+  title, 
+  description = "Proofyx is an enterprise compliance proof platform focused on audit-ready evidence and policy lifecycle management.",
+  seoTitle,
+  seoDescription,
+  image = "/og-image.png",
+  canonicalURL = Astro.url.href
+} = Astro.props;
+
+const metaTitle = seoTitle || `${title} | Proofyx`;
+const metaDescription = seoDescription || description;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{metaTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url.href} />
+    <meta property="twitter:title" content={metaTitle} />
+    <meta property="twitter:description" content={metaDescription} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
