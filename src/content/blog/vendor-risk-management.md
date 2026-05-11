@@ -1,7 +1,7 @@
 ---
 title: "Managing Third-Party Risk for Compliance Frameworks"
 description: "Your compliance posture is only as strong as your weakest vendor. Here's how to manage third-party risk before it becomes your audit finding."
-pubDate: 2026-05-11
+pubDate: 2026-05-12
 category: "Compliance Automation"
 tags: ["Vendor Risk", "Supply Chain", "CMMC", "NIST", "Third-Party Risk"]
 readingTime: "6 min read"

@@ -13,7 +13,9 @@ const { title, description, pubDate, category, readingTime, image, seoTitle, seo
 // Filter for relevant headings (h2 and h3)
 const tocHeadings = headings.filter(h => h.depth > 1 && h.depth < 4);
 
-const allPosts = await getCollection('blog');
+const allPosts = await getCollection('blog', ({ data }) => {
+  return import.meta.env.DEV || !data.draft;
+});
 const relatedPosts = allPosts
   .filter(post => post.id !== slug)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
@@ -36,7 +38,27 @@ const canonicalShareURL = new URL(Astro.url.pathname, Astro.site).href;
   image={image?.src}
   ogType="article"
 >
-  <article class="py-12 md:py-20">
+  <article 
+    class="py-12 md:py-20 relative" 
+    id="blog-content" 
+    data-publish-date={new Date(pubDate).toISOString()}
+    data-is-dev={import.meta.env.DEV}
+  >
+    <!-- Coming Soon Overlay -->
+    <div id="coming-soon-overlay" class="hidden absolute inset-0 z-50 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center text-center p-6">
+      <div class="max-w-md">
+        <div class="w-20 h-20 bg-proofyx-blue-light text-proofyx-blue rounded-full flex items-center justify-center mx-auto mb-8">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <h2 class="text-3xl font-bold text-neutral-900 mb-4">Coming Soon</h2>
+        <p class="text-neutral-600 mb-8 leading-relaxed">
+          This article is scheduled to be published on <br/>
+          <span class="font-bold text-neutral-900">{formattedDate}</span>.
+        </p>
+        <Button href="/blog" variant="outline">Back to Blog</Button>
+      </div>
+    </div>
+
     <div class="container mx-auto px-6">
       <!-- Breadcrumbs -->
       <nav class="max-w-4xl mx-auto mb-12" aria-label="Breadcrumb">
@@ -254,4 +276,29 @@ const canonicalShareURL = new URL(Astro.url.pathname, Astro.site).href;
   -->
 
   <CTASection />
+  <script>
+    function checkPostVisibility() {
+      const content = document.getElementById('blog-content');
+      const overlay = document.getElementById('coming-soon-overlay');
+      
+      if (content && overlay) {
+        const publishDate = new Date(content.dataset.publishDate || '');
+        const isDev = content.dataset.isDev === 'true';
+        const now = new Date();
+        
+        if (!isDev && publishDate > now) {
+          overlay.classList.remove('hidden');
+          content.style.overflow = 'hidden';
+          content.style.maxHeight = '100vh';
+        } else {
+          overlay.classList.add('hidden');
+          content.style.overflow = '';
+          content.style.maxHeight = '';
+        }
+      }
+    }
+
+    checkPostVisibility();
+    document.addEventListener('astro:after-swap', checkPostVisibility);
+  </script>
 </BaseLayout>
