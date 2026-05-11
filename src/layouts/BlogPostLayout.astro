@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseLayout from './BaseLayout.astro';
 import CTASection from '../components/CTASection.astro';
@@ -6,7 +7,7 @@ import BlogCard from '../components/BlogCard.astro';
 import Button from '../components/Button.astro';
 
 const { frontmatter, slug } = Astro.props;
-const { title, description, pubDate, category, readingTime, seoTitle, seoDescription } = frontmatter;
+const { title, description, pubDate, category, readingTime, image, seoTitle, seoDescription } = frontmatter;
 
 const allPosts = await getCollection('blog');
 const relatedPosts = allPosts
@@ -53,6 +54,16 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
         </p>
       </div>
 
+      {image && (
+        <div class="mb-16 rounded-2xl overflow-hidden border border-neutral-200 shadow-enterprise">
+          <Image 
+            src={image} 
+            alt={title} 
+            class="w-full aspect-[21/9] object-cover"
+          />
+        </div>
+      )}
+
       <div class="prose prose-neutral max-w-none border-t border-neutral-200 pt-12">
         <slot />
       </div>
@@ -88,6 +99,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
               pubDate={post.data.pubDate}
               category={post.data.category}
               readingTime={post.data.readingTime}
+              image={post.data.image}
               slug={post.id}
             />
           ))}

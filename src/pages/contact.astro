@@ -16,27 +16,15 @@ import ContactForm from '../components/ContactForm.astro';
         <ContactForm />
       </div>
 
-      <div class="grid md:grid-cols-3 gap-12 mt-24 pt-24 border-t border-neutral-100">
-        <div class="text-center">
+      <div class="mt-24 pt-24 border-t border-neutral-100">
+        <div class="text-center max-w-xs mx-auto">
           <div class="w-12 h-12 bg-proofyx-blue-light text-proofyx-blue rounded-full flex items-center justify-center mx-auto mb-6">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
           </div>
-          <h4 class="font-bold mb-2">Email Us</h4>
-          <p class="text-neutral-600 text-sm">support@proofyx.com</p>
-        </div>
-        <div class="text-center">
-          <div class="w-12 h-12 bg-proofyx-blue-light text-proofyx-blue rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
-          </div>
-          <h4 class="font-bold mb-2">Live Chat</h4>
-          <p class="text-neutral-600 text-sm">Available Mon-Fri, 9am-5pm EST</p>
-        </div>
-        <div class="text-center">
-          <div class="w-12 h-12 bg-proofyx-blue-light text-proofyx-blue rounded-full flex items-center justify-center mx-auto mb-6">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-          </div>
-          <h4 class="font-bold mb-2">Office</h4>
-          <p class="text-neutral-600 text-sm">Washington, D.C.</p>
+          <h4 class="font-bold mb-2 text-neutral-900">Email Us</h4>
+          <a href="mailto:support@proofyx.com" class="text-proofyx-blue hover:text-proofyx-blue-dark transition-colors font-medium">
+            support@proofyx.com
+          </a>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ category: "CMMC 2.0"
 tags: ["CMMC", "GovCon", "Audit Readiness"]
 readingTime: "5 min read"
 featured: true
+image: "../../assets/blog/cmmc-2-0-level-1.png"
 seoTitle: "What Is CMMC 2.0 Level 1? | Proofyx"
 seoDescription: "Learn what CMMC 2.0 Level 1 means for small businesses, government contractors, and organizations preparing for audit readiness."
 ---

@@ -6,6 +6,7 @@ category: "AI Governance"
 tags: ["AI", "Automation", "Future of Compliance"]
 readingTime: "5 min read"
 featured: false
+image: "../../assets/blog/ai-support-compliance.png"
 seoTitle: "AI for Compliance Readiness | Proofyx"
 seoDescription: "Discover how AI is transforming the way organizations manage compliance and policy."
 ---

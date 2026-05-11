@@ -6,6 +6,7 @@ category: "Audit Readiness"
 tags: ["Compliance", "Evidence", "Audits"]
 readingTime: "7 min read"
 featured: false
+image: "../../assets/blog/building-audit-ready-evidence.png"
 seoTitle: "Building Audit-Ready Evidence | Proofyx"
 seoDescription: "Learn the principles of audit-ready evidence and how to centralize your compliance proof."
 ---

@@ -6,6 +6,7 @@ category: "Policy Management"
 tags: ["Policy", "Version Control", "Lifecycle"]
 readingTime: "6 min read"
 featured: false
+image: "../../assets/blog/policy-version.png"
 seoTitle: "Policy Version Control for Compliance | Proofyx"
 seoDescription: "Learn why policy version control is essential for modern compliance frameworks."
 ---

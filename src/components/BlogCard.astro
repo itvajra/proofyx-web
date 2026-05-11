@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   title: string;
   description: string;
@@ -6,10 +8,11 @@ interface Props {
   category: string;
   readingTime: string;
   slug: string;
+  image?: any;
   isFeatured?: boolean;
 }
 
-const { title, description, pubDate, category, readingTime, slug, isFeatured = false } = Astro.props;
+const { title, description, pubDate, category, readingTime, slug, image, isFeatured = false } = Astro.props;
 
 const formattedDate = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
@@ -20,13 +23,24 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 
 <article class:list={[
   "bg-white border border-neutral-200 rounded-lg overflow-hidden transition-all duration-300 hover:shadow-enterprise-hover group",
-  isFeatured ? "md:grid md:grid-cols-2 gap-8 p-0" : "flex flex-col h-full"
+  isFeatured ? "md:grid md:grid-cols-2 gap-0 p-0" : "flex flex-col h-full"
 ]}>
-  {isFeatured && (
-    <div class="bg-neutral-100 aspect-video md:aspect-auto flex items-center justify-center overflow-hidden">
-      <div class="text-neutral-400 font-bold text-4xl opacity-20 group-hover:scale-110 transition-transform duration-500">PROOFYX</div>
-    </div>
-  )}
+  <div class:list={[
+    "bg-neutral-100 flex items-center justify-center overflow-hidden relative",
+    isFeatured ? "aspect-video md:aspect-auto" : "aspect-video"
+  ]}>
+    {image ? (
+      <Image 
+        src={image} 
+        alt={title} 
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+      />
+    ) : (
+      <div class="text-neutral-400 font-bold text-4xl opacity-20 group-hover:scale-110 transition-transform duration-500 uppercase tracking-tighter">
+        Proofyx
+      </div>
+    )}
+  </div>
   
   <div class:list={[
     "p-8 flex flex-col h-full",

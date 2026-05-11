@@ -6,6 +6,7 @@ category: "CMMC 2.0"
 tags: ["CMMC", "Assessment", "Preparation"]
 readingTime: "10 min read"
 featured: false
+image: "../../assets/blog/prep-cmmc-assessment.png"
 seoTitle: "Preparing for a CMMC Assessment | Proofyx"
 seoDescription: "Step-by-step preparation guide for CMMC 2.0 assessments."
 ---

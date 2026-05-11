@@ -6,6 +6,7 @@ category: "Compliance Automation"
 tags: ["Mapping", "NIST", "Frameworks"]
 readingTime: "8 min read"
 featured: false
+image: "../../assets/blog/mapping-policies-to-compliance.png"
 seoTitle: "Mapping Policies to Compliance Requirements | Proofyx"
 seoDescription: "Learn how to effectively map your internal policies to external compliance frameworks."
 ---

@@ -41,6 +41,7 @@ const latestPosts = sortedPosts.filter(post => post.id !== featuredPost.id);
           pubDate={featuredPost.data.pubDate}
           category={featuredPost.data.category}
           readingTime={featuredPost.data.readingTime}
+          image={featuredPost.data.image}
           slug={featuredPost.id}
           isFeatured={true}
         />
@@ -60,6 +61,7 @@ const latestPosts = sortedPosts.filter(post => post.id !== featuredPost.id);
             pubDate={post.data.pubDate}
             category={post.data.category}
             readingTime={post.data.readingTime}
+            image={post.data.image}
             slug={post.id}
           />
         ))}
