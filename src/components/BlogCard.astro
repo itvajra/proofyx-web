@@ -10,9 +10,11 @@ interface Props {
   slug: string;
   image?: any;
   isFeatured?: boolean;
+  loading?: "eager" | "lazy";
+  fetchpriority?: "high" | "low" | "auto";
 }
 
-const { title, description, pubDate, category, readingTime, slug, image, isFeatured = false } = Astro.props;
+const { title, description, pubDate, category, readingTime, slug, image, isFeatured = false, loading = "lazy", fetchpriority = "auto" } = Astro.props;
 
 const formattedDate = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
@@ -34,6 +36,8 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
         src={image} 
         alt={title} 
         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        loading={loading}
+        fetchpriority={fetchpriority}
       />
     ) : (
       <div class="w-full h-full bg-gradient-to-br from-neutral-50 to-neutral-200 flex items-center justify-center relative overflow-hidden">

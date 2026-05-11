@@ -35,7 +35,7 @@ const categories = ['All', ...new Set(allPosts.map(post => post.data.category))]
   <!-- Featured Article -->
   <section class="py-16 bg-white" id="articles">
     <div class="container mx-auto px-6">
-      <h2 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-8">Featured Article</h2>
+      <h2 class="text-xs font-bold uppercase tracking-widest text-neutral-600 mb-8">Featured Article</h2>
       {featuredPost && (
         <BlogCard 
           title={featuredPost.data.title}
@@ -46,6 +46,8 @@ const categories = ['All', ...new Set(allPosts.map(post => post.data.category))]
           image={featuredPost.data.image}
           slug={featuredPost.id}
           isFeatured={true}
+          loading="eager"
+          fetchpriority="high"
         />
       )}
     </div>
@@ -55,7 +57,7 @@ const categories = ['All', ...new Set(allPosts.map(post => post.data.category))]
   <section class="py-16 bg-neutral-50">
     <div class="container mx-auto px-6">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-neutral-400">Latest Articles</h2>
+        <h2 class="text-xs font-bold uppercase tracking-widest text-neutral-600">Latest Articles</h2>
         
         <div class="flex flex-wrap gap-2" id="category-filters">
           {categories.map(category => (
