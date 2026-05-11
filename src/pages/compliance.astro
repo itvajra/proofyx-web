@@ -47,18 +47,38 @@ const frameworks = [
                 <svg class="w-6 h-6 text-proofyx-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A2 2 0 013 15.488V5.512a2 2 0 011.553-1.944L9 1l6 3 6-3v9.976a2 2 0 01-1.553 1.944L15 14l-6 6z"></path></svg>
               </div>
               <div>
-                <h4 class="font-bold text-neutral-900 text-lg mb-2">Control Mapping</h4>
-                <p class="text-neutral-600">Automatically map your proof to NIST, CMMC, or your own custom frameworks. Avoid duplicate work across multiple standards.</p>
+                <h4 class="font-bold text-neutral-900 text-lg mb-2">Guided Control Mapping</h4>
+                <p class="text-neutral-600">Organize requirements by framework. Map controls to requirements, get guided next steps, and track implementation status across CMMC, NIST, and more.</p>
               </div>
             </div>
             
             <div class="flex gap-5">
               <div class="w-12 h-12 bg-white rounded-lg shadow-sm border border-neutral-100 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-proofyx-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-neutral-900 text-lg mb-2">Clear Pass/Fail Status</h4>
+                <p class="text-neutral-600">Every control shows a clear status: compliant (green), non-compliant (red), or in progress. No ambiguity about your current compliance posture.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="w-12 h-12 bg-white rounded-lg shadow-sm border border-neutral-100 flex items-center justify-center shrink-0">
                 <svg class="w-6 h-6 text-proofyx-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
               </div>
               <div>
-                <h4 class="font-bold text-neutral-900 text-lg mb-2">Evidence Library</h4>
-                <p class="text-neutral-600">A centralized, immutable store for all your audit evidence. Version history ensures you can prove past compliance status at any time.</p>
+                <h4 class="font-bold text-neutral-900 text-lg mb-2">Evidence Integrity</h4>
+                <p class="text-neutral-600">A centralized, immutable store for all audit evidence. All files are timestamped and linked to the uploading user for complete accountability.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="w-12 h-12 bg-white rounded-lg shadow-sm border border-neutral-100 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-proofyx-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-neutral-900 text-lg mb-2">Audit-Ready Reports</h4>
+                <p class="text-neutral-600">Generate reports that show status, evidence, and history for each requirement. Purpose-built to satisfy professional assessors.</p>
               </div>
             </div>
           </div>
@@ -77,21 +97,68 @@ const frameworks = [
     </div>
   </section>
 
-  <!-- Supported Frameworks -->
-  <section class="py-24 bg-white">
-    <div class="container mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-neutral-900 mb-4">Frameworks We Support</h2>
-        <p class="text-neutral-600 max-w-2xl mx-auto">Proofyx is built to handle the most rigorous security and compliance frameworks in the world.</p>
+  <!-- How It Works -->
+  <section class="py-24 bg-neutral-900 text-white relative overflow-hidden">
+    <!-- Decor -->
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-proofyx-blue/10 to-transparent pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-1/2 h-full bg-gradient-to-r from-proofyx-green/5 to-transparent pointer-events-none"></div>
+
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-20">
+        <span class="inline-block px-4 py-1.5 bg-white/10 text-proofyx-blue-light text-xs font-bold uppercase tracking-widest rounded-full mb-6">
+          The Process
+        </span>
+        <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">How It Works</h2>
+        <p class="text-white/70 max-w-2xl mx-auto text-lg">
+          A structured approach to moving from spreadsheets and checklists to continuous, audit-ready proof.
+        </p>
       </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {frameworks.map(f => (
-          <div class="p-8 border border-neutral-100 rounded-xl bg-neutral-50 hover:bg-white hover:shadow-enterprise transition-all">
-            <h3 class="font-bold text-xl text-neutral-900 mb-4">{f.name}</h3>
-            <p class="text-neutral-600 text-sm leading-relaxed">{f.desc}</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          { step: "1", title: "Select Framework", desc: "Start with CMMC 2.0 or NIST. Requirements are organized by domain to keep implementation clear.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>` },
+          { step: "2", title: "Map Controls", desc: "Document how each requirement is met. Assign owners and set implementation status.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>` },
+          { step: "3", title: "Attach Evidence", desc: "Upload supporting documentation, logs, or screenshots for each individual control.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>` },
+          { step: "4", title: "Track Status", desc: "Monitor compliance status in real-time. Green means compliant, red means action required.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>` },
+          { step: "5", title: "Generate Reports", desc: "Create reports that show status, evidence, and complete history for assessors.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>` }
+        ].map(item => (
+          <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-proofyx-blue/50 transition-all duration-300 relative overflow-hidden group hover:-translate-y-1">
+            <div class="absolute -right-2 -bottom-6 text-[10rem] font-bold text-white/[0.03] group-hover:text-white/[0.06] transition-colors pointer-events-none leading-none font-mono tracking-tighter">{item.step}</div>
+            
+            <div class="w-12 h-12 bg-proofyx-blue/20 text-proofyx-blue rounded-xl flex items-center justify-center font-bold text-xl mb-6 shadow-[0_0_15px_rgba(37,99,235,0.2)] border border-proofyx-blue/30" set:html={item.icon}>
+            </div>
+            
+            <h4 class="text-xl font-bold mb-3 text-white relative z-10">{item.title}</h4>
+            <p class="text-white/60 text-sm leading-relaxed relative z-10">{item.desc}</p>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The Proof Concept -->
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">The Proof Concept</h2>
+          <p class="text-neutral-600 text-lg">
+            Compliance is not complete until you can prove it. Every control in Proofyx requires verifiable evidence.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <div class="p-8 rounded-2xl bg-neutral-50 border border-neutral-100">
+            <div class="text-3xl mb-6">🔒</div>
+            <h4 class="text-xl font-bold mb-4">Immutable Audit Trails</h4>
+            <p class="text-neutral-600 leading-relaxed">Every change to compliance status is logged with who made the change, when, and why. No retroactive edits or hidden modifications possible.</p>
+          </div>
+          <div class="p-8 rounded-2xl bg-neutral-50 border border-neutral-100">
+            <div class="text-3xl mb-6">✅</div>
+            <h4 class="text-xl font-bold mb-4">Attestation & Approval</h4>
+            <p class="text-neutral-600 leading-relaxed">Controls can require attestation from responsible parties. Digital signatures become part of the permanent audit trail for verification.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
