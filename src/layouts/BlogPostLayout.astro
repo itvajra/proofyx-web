@@ -5,9 +5,13 @@ import BaseLayout from './BaseLayout.astro';
 import CTASection from '../components/CTASection.astro';
 import BlogCard from '../components/BlogCard.astro';
 import Button from '../components/Button.astro';
+import Newsletter from '../components/Newsletter.astro';
 
-const { frontmatter, slug } = Astro.props;
+const { frontmatter, slug, headings = [] } = Astro.props;
 const { title, description, pubDate, category, readingTime, image, seoTitle, seoDescription } = frontmatter;
+
+// Filter for relevant headings (h2 and h3)
+const tocHeadings = headings.filter(h => h.depth > 1 && h.depth < 4);
 
 const allPosts = await getCollection('blog');
 const relatedPosts = allPosts
@@ -27,35 +31,48 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
   description={description} 
   seoTitle={seoTitle} 
   seoDescription={seoDescription}
+  ogType="article"
 >
-  <article class="py-20">
-    <div class="container mx-auto px-6 max-w-4xl">
-      <div class="mb-8">
-        <a href="/blog" class="inline-flex items-center gap-2 text-sm font-medium text-neutral-500 hover:text-proofyx-blue transition-colors group">
-          <span class="group-hover:-translate-x-1 transition-transform">←</span> Back to Blog
-        </a>
-      </div>
+  <article class="py-12 md:py-20">
+    <div class="container mx-auto px-6">
+      <!-- Breadcrumbs -->
+      <nav class="max-w-4xl mx-auto mb-12" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 text-sm font-medium">
+          <li>
+            <a href="/" class="text-neutral-500 hover:text-proofyx-blue transition-colors">Home</a>
+          </li>
+          <li class="text-neutral-400">/</li>
+          <li>
+            <a href="/blog" class="text-neutral-500 hover:text-proofyx-blue transition-colors">Blog</a>
+          </li>
+          <li class="text-neutral-400">/</li>
+          <li class="text-neutral-900 truncate max-w-[200px] md:max-w-none" aria-current="page">
+            {title}
+          </li>
+        </ol>
+      </nav>
 
-      <div class="mb-12 text-center">
+      <!-- Header Section -->
+      <div class="max-w-4xl mx-auto mb-16 text-center">
         <div class="inline-flex items-center gap-3 mb-6">
           <span class="text-xs font-bold uppercase tracking-wider text-proofyx-blue px-3 py-1.5 bg-proofyx-blue-light rounded">
             {category}
           </span>
-          <span class="text-neutral-400 text-xs">•</span>
-          <time class="text-neutral-500 text-sm">{formattedDate}</time>
-          <span class="text-neutral-400 text-xs">•</span>
+          <span class="text-neutral-400 text-xs" role="presentation">•</span>
+          <time class="text-neutral-500 text-sm" datetime={new Date(pubDate).toISOString()}>{formattedDate}</time>
+          <span class="text-neutral-400 text-xs" role="presentation">•</span>
           <span class="text-neutral-500 text-sm">{readingTime}</span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold text-neutral-900 leading-tight mb-8">
+        <h1 class="text-4xl md:text-6xl font-bold text-neutral-900 leading-tight mb-8">
           {title}
         </h1>
-        <p class="text-xl text-neutral-600 leading-relaxed max-w-2xl mx-auto">
+        <p class="text-xl text-neutral-600 leading-relaxed max-w-2xl mx-auto italic">
           {description}
         </p>
       </div>
 
       {image && (
-        <div class="mb-16 rounded-2xl overflow-hidden border border-neutral-200 shadow-enterprise">
+        <div class="max-w-5xl mx-auto mb-16 rounded-2xl overflow-hidden border border-neutral-200 shadow-enterprise">
           <Image 
             src={image} 
             alt={title} 
@@ -64,22 +81,69 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
         </div>
       )}
 
-      <div class="prose prose-neutral max-w-none border-t border-neutral-200 pt-12">
-        <slot />
-      </div>
+      <!-- Article Grid -->
+      <div class="max-w-6xl mx-auto grid lg:grid-cols-[1fr_280px] gap-16">
+        <div class="min-w-0">
+          <div class="prose prose-neutral max-w-none prose-lg prose-headings:scroll-mt-24">
+            <slot />
+          </div>
 
-      <div class="mt-20 pt-10 border-t border-neutral-200">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-neutral-200 rounded-full flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#42526E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            </div>
-            <div>
-              <p class="text-neutral-900 font-bold text-sm mb-0">Proofyx Editorial Team</p>
-              <p class="text-neutral-500 text-xs uppercase tracking-widest">Compliance Experts</p>
+          <!-- In-Article CTA Callout -->
+          <div class="my-16 p-8 rounded-2xl bg-proofyx-blue-light border border-proofyx-blue/10 relative overflow-hidden group">
+            <div class="absolute -right-4 -bottom-4 text-9xl font-bold text-proofyx-blue/[0.03] pointer-events-none group-hover:scale-110 transition-transform">✓</div>
+            <h3 class="text-2xl font-bold text-neutral-900 mb-4 relative z-10">Struggling with manual evidence collection?</h3>
+            <p class="text-neutral-700 mb-6 relative z-10">Proofyx centralizes your evidence, policies, and compliance workflows so you're always audit-ready.</p>
+            <Button href="/contact" variant="primary" class="relative z-10">Talk to an Expert</Button>
+          </div>
+
+          <!-- Author Box -->
+          <div class="mt-20 pt-10 border-t border-neutral-200">
+            <div class="flex items-center gap-6 p-8 bg-neutral-50 rounded-2xl border border-neutral-100">
+              <div class="w-16 h-16 bg-neutral-200 rounded-full flex items-center justify-center shrink-0 border-4 border-white shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#42526E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
+              <div>
+                <p class="text-neutral-900 font-bold text-lg mb-1">Proofyx Editorial Team</p>
+                <p class="text-neutral-500 text-xs uppercase tracking-widest font-bold mb-3">Compliance & Audit Experts</p>
+                <p class="text-sm text-neutral-600 leading-relaxed max-w-lg">Dedicated to demystifying complex compliance frameworks and providing actionable insights for regulated organizations.</p>
+              </div>
             </div>
           </div>
+
         </div>
+
+        <!-- Sidebar -->
+        <aside class="hidden lg:block space-y-12 sticky top-32 h-fit">
+          {tocHeadings.length > 0 && (
+            <div class="p-6 bg-white rounded-xl border border-neutral-100 shadow-sm">
+              <h4 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-6">Table of Contents</h4>
+              <nav>
+                <ul class="space-y-4">
+                  {tocHeadings.map(h => (
+                    <li class:list={[
+                      "text-sm transition-colors",
+                      h.depth === 3 ? "pl-4" : ""
+                    ]}>
+                      <a 
+                        href={`#${h.slug}`} 
+                        class="text-neutral-600 hover:text-proofyx-blue font-medium block leading-tight"
+                      >
+                        {h.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          )}
+
+          <div class="p-8 bg-neutral-50 rounded-2xl border-2 border-proofyx-blue/10 shadow-sm relative overflow-hidden group hover:border-proofyx-blue/30 transition-colors">
+            <div class="absolute -right-8 -top-8 w-24 h-24 bg-proofyx-blue/5 rounded-full"></div>
+            <h4 class="text-xl font-bold mb-4 relative z-10 text-proofyx-blue">Audit Readiness Assessment</h4>
+            <p class="text-neutral-600 text-sm mb-6 relative z-10 leading-relaxed font-medium">Know where you stand before the assessor arrives. Schedule a demo of our platform today.</p>
+            <Button href="/contact" size="sm" class="w-full justify-center relative z-10">Book a Demo</Button>
+          </div>
+        </aside>
       </div>
     </div>
   </article>
@@ -88,7 +152,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     <section class="py-20 bg-neutral-50 border-t border-neutral-200">
       <div class="container mx-auto px-6">
         <div class="flex items-center justify-between mb-10">
-          <h2 class="text-2xl font-bold text-neutral-900">Latest Articles</h2>
+          <h2 class="text-2xl font-bold text-neutral-900">Related Articles</h2>
           <Button href="/blog" variant="outline" size="sm">View All Articles</Button>
         </div>
         <div class="grid md:grid-cols-3 gap-8">
@@ -107,6 +171,12 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
       </div>
     </section>
   )}
+
+  <!-- 
+  <div class="container mx-auto px-6 py-20">
+    <Newsletter />
+  </div>
+  -->
 
   <CTASection />
 </BaseLayout>

@@ -10,6 +10,7 @@ interface Props {
   seoDescription?: string;
   image?: string;
   canonicalURL?: string;
+  ogType?: string;
 }
 
 const { 
@@ -18,7 +19,8 @@ const {
   seoTitle,
   seoDescription,
   image = "/og-image.png",
-  canonicalURL = Astro.url.href
+  canonicalURL = Astro.url.href,
+  ogType = "website"
 } = Astro.props;
 
 const metaTitle = seoTitle || `${title} | Proofyx`;
@@ -38,7 +40,7 @@ const metaDescription = seoDescription || description;
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:title" content={metaTitle} />
     <meta property="og:description" content={metaDescription} />
@@ -52,8 +54,9 @@ const metaDescription = seoDescription || description;
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
   </head>
   <body class="min-h-screen flex flex-col">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:bg-white focus:text-proofyx-blue focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-proofyx-blue font-bold">Skip to content</a>
     <Header />
-    <main class="flex-grow">
+    <main id="main-content" class="flex-grow outline-none" tabindex="-1">
       <slot />
     </main>
     <Footer />

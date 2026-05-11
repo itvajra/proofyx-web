@@ -6,13 +6,14 @@
   --color-proofyx-blue-light: #e6f0ff;
   --color-proofyx-green: #00875a;
   --color-proofyx-red: #de350b;
+  --color-proofyx-navy: #0a1929;
   
   --color-neutral-900: #091e42;
   --color-neutral-800: #172b4d;
   --color-neutral-700: #253858;
   --color-neutral-600: #42526e;
   --color-neutral-500: #5e6c84;
-  --color-neutral-400: #7a869a;
+  --color-neutral-400: #6b778c; /* Darkened from #7a869a for WCAG AA contrast */
   --color-neutral-300: #97a0af;
   --color-neutral-200: #dfe1e6;
   --color-neutral-100: #ebecf0;
@@ -20,7 +21,15 @@
 
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "sans-serif";
   
+  --radius-sm: 0.25rem;  /* 4px */
+  --radius-md: 0.5rem;   /* 8px - Default for buttons/inputs */
+  --radius-lg: 0.75rem;  /* 12px - Default for cards */
+  --radius-xl: 1rem;     /* 16px - Large cards */
+  --radius-2xl: 1.5rem;  /* 24px - Featured/Hero containers */
+
+  --shadow-sm: 0 1px 2px 0 rgba(9, 30, 66, 0.05);
   --shadow-enterprise: 0 4px 6px rgba(9, 30, 66, 0.05), 0 1px 3px rgba(9, 30, 66, 0.08);
+  --shadow-lg: 0 10px 15px -3px rgba(9, 30, 66, 0.1), 0 4px 6px -2px rgba(9, 30, 66, 0.05);
   --shadow-enterprise-hover: 0 20px 40px rgba(9, 30, 66, 0.1);
 }
 
@@ -39,10 +48,19 @@
 }
 
 /* Custom prose-like styles for Markdown */
-.prose h1 { @apply text-4xl mb-8 font-bold; }
-.prose h2 { @apply text-3xl mb-6 mt-12 font-bold; }
-.prose h3 { @apply text-2xl mb-4 mt-8 font-bold; }
-.prose p { @apply mb-6 text-neutral-700 leading-relaxed text-lg; }
-.prose ul { @apply list-disc pl-6 mb-6 text-neutral-700; }
+.prose {
+  @apply text-neutral-700 leading-relaxed text-lg;
+}
+.prose h1 { @apply text-4xl mb-8 font-bold text-neutral-900; }
+.prose h2 { @apply text-3xl mb-6 mt-12 font-bold text-neutral-900; }
+.prose h3 { @apply text-2xl mb-4 mt-8 font-bold text-neutral-900; }
+.prose p { @apply mb-6; }
+.prose ul { @apply list-disc pl-6 mb-6; }
+.prose ol { @apply list-decimal pl-6 mb-6; }
 .prose li { @apply mb-2; }
 .prose strong { @apply font-bold text-neutral-900; }
+.prose blockquote { @apply border-l-4 border-proofyx-blue bg-neutral-50 p-6 italic mb-6 rounded-r-lg; }
+.prose code { @apply bg-neutral-100 px-1.5 py-0.5 rounded text-sm font-mono text-proofyx-blue; }
+.prose pre { @apply bg-neutral-900 text-white p-6 rounded-xl overflow-x-auto mb-6 text-sm; }
+.prose hr { @apply my-12 border-neutral-200; }
+.prose a { @apply text-proofyx-blue underline hover:text-proofyx-blue-dark transition-colors; }

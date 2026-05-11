@@ -3,12 +3,14 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogCard from '../../components/BlogCard.astro';
 import Button from '../../components/Button.astro';
+import Newsletter from '../../components/Newsletter.astro';
 
 const allPosts = await getCollection('blog');
 const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const featuredPost = sortedPosts.find(post => post.data.featured) || sortedPosts[0];
 const latestPosts = sortedPosts.filter(post => post.id !== featuredPost.id);
+const categories = ['All', ...new Set(allPosts.map(post => post.data.category))];
 ---
 
 <BaseLayout 
@@ -52,22 +54,91 @@ const latestPosts = sortedPosts.filter(post => post.id !== featuredPost.id);
   <!-- Latest Articles -->
   <section class="py-16 bg-neutral-50">
     <div class="container mx-auto px-6">
-      <h2 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-8">Latest Articles</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+        <h2 class="text-xs font-bold uppercase tracking-widest text-neutral-400">Latest Articles</h2>
+        
+        <div class="flex flex-wrap gap-2" id="category-filters">
+          {categories.map(category => (
+            <button 
+              data-category={category}
+              class:list={[
+                "px-4 py-2 rounded-full text-sm font-medium transition-all border",
+                category === 'All' 
+                  ? "bg-proofyx-blue text-white border-proofyx-blue" 
+                  : "bg-white text-neutral-600 border-neutral-200 hover:border-proofyx-blue hover:text-proofyx-blue"
+              ]}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="blog-grid">
         {latestPosts.map(post => (
-          <BlogCard 
-            title={post.data.title}
-            description={post.data.description}
-            pubDate={post.data.pubDate}
-            category={post.data.category}
-            readingTime={post.data.readingTime}
-            image={post.data.image}
-            slug={post.id}
-          />
+          <div class="blog-post-card transition-all duration-500" data-category={post.data.category}>
+            <BlogCard 
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              category={post.data.category}
+              readingTime={post.data.readingTime}
+              image={post.data.image}
+              slug={post.id}
+            />
+          </div>
         ))}
       </div>
     </div>
   </section>
+
+  <script>
+    function setupFilters() {
+      const filterButtons = document.querySelectorAll('#category-filters button');
+      const posts = document.querySelectorAll('.blog-post-card');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const category = button.getAttribute('data-category');
+
+          // Update buttons
+          filterButtons.forEach(btn => {
+            btn.classList.remove('bg-proofyx-blue', 'text-white', 'border-proofyx-blue');
+            btn.classList.add('bg-white', 'text-neutral-600', 'border-neutral-200');
+          });
+          button.classList.add('bg-proofyx-blue', 'text-white', 'border-proofyx-blue');
+          button.classList.remove('bg-white', 'text-neutral-600', 'border-neutral-200');
+
+          // Filter posts
+          posts.forEach(post => {
+            const postCategory = post.getAttribute('data-category');
+            if (category === 'All' || postCategory === category) {
+              (post as HTMLElement).style.display = 'block';
+              setTimeout(() => {
+                (post as HTMLElement).style.opacity = '1';
+                (post as HTMLElement).style.transform = 'translateY(0)';
+              }, 10);
+            } else {
+              (post as HTMLElement).style.opacity = '0';
+              (post as HTMLElement).style.transform = 'translateY(20px)';
+              setTimeout(() => {
+                (post as HTMLElement).style.display = 'none';
+              }, 500);
+            }
+          });
+        });
+      });
+    }
+
+    setupFilters();
+    document.addEventListener('astro:after-swap', setupFilters);
+  </script>
+
+  <!-- 
+  <div class="container mx-auto px-6 mb-24">
+    <Newsletter />
+  </div>
+  -->
 
   <section class="py-24 bg-white">
     <div class="container mx-auto px-6 text-center">

@@ -3,6 +3,7 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'Compliance', href: '/compliance' },
   { name: 'Policy', href: '/policy' },
+  { name: 'About', href: '/about' },
   { name: 'Blog', href: '/blog' },
 ];
 
@@ -38,7 +39,7 @@ const currentPath = Astro.url.pathname;
       <!-- Mobile Menu Open Button -->
       <button 
         id="mobile-menu-open" 
-        class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 focus:outline-none"
+        class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-proofyx-blue rounded-md transition-all"
         aria-label="Open mobile menu"
       >
         <span class="block w-6 h-0.5 bg-neutral-800"></span>

@@ -11,9 +11,18 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings, remarkPluginFrontmatter } = await render(post);
+
+// Simple automated reading time calculation
+const wordCount = post.body ? post.body.split(/\s+/).length : 0;
+const minutes = Math.max(1, Math.ceil(wordCount / 200));
+const calculatedReadingTime = `${minutes} min read`;
 ---
 
-<BlogPostLayout frontmatter={post.data} slug={post.id}>
+<BlogPostLayout 
+  frontmatter={{...post.data, readingTime: calculatedReadingTime}} 
+  slug={post.id} 
+  headings={headings}
+>
   <Content />
 </BlogPostLayout>
