@@ -106,7 +106,7 @@ const features = [
           </ul>
           <div class="flex gap-4">
             <Button href="https://compliance.proofyx.com" class="flex-grow">Get Started</Button>
-            <Button href="/compliance" variant="outline" class="flex-grow">Learn More</Button>
+            <Button href="/compliance" variant="outline" class="flex-grow">Learn more about Compliance</Button>
           </div>
         </div>
 
@@ -137,7 +137,7 @@ const features = [
           </ul>
           <div class="flex gap-4">
             <Button href="https://policy.proofyx.com" class="flex-grow !bg-proofyx-green hover:!bg-green-700">Get Started</Button>
-            <Button href="/policy" variant="outline" class="flex-grow !border-proofyx-green !text-proofyx-green hover:!bg-proofyx-green/5">Learn More</Button>
+            <Button href="/policy" variant="outline" class="flex-grow !border-proofyx-green !text-proofyx-green hover:!bg-proofyx-green/5">Learn more about Policy</Button>
           </div>
         </div>
       </div>
@@ -156,21 +156,21 @@ const features = [
 
       <!-- Trust Badges / Logos -->
       <div class="max-w-5xl mx-auto mb-20">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-50 grayscale transition-all">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center transition-all">
           <div class="flex justify-center p-4">
-            <div class="text-xl font-black text-neutral-400 tracking-tighter">GOV<span class="text-neutral-300">TECH</span></div>
+            <div class="text-xl font-black text-neutral-600 tracking-tighter">GOV<span class="text-neutral-500">TECH</span></div>
           </div>
           <div class="flex justify-center p-4">
-            <div class="text-xl font-black text-neutral-400 tracking-tighter italic">SECURE<span class="text-neutral-300">CORP</span></div>
+            <div class="text-xl font-black text-neutral-600 tracking-tighter italic">SECURE<span class="text-neutral-500">CORP</span></div>
           </div>
           <div class="flex justify-center p-4">
-            <div class="text-xl font-black text-neutral-400 tracking-tighter">FIN<span class="text-neutral-300">ALLIANCE</span></div>
+            <div class="text-xl font-black text-neutral-600 tracking-tighter">FIN<span class="text-neutral-500">ALLIANCE</span></div>
           </div>
           <div class="flex justify-center p-4">
-            <div class="text-xl font-black text-neutral-400 tracking-tighter uppercase">Defense<span class="text-neutral-300">Systems</span></div>
+            <div class="text-xl font-black text-neutral-600 tracking-tighter uppercase">Defense<span class="text-neutral-500">Systems</span></div>
           </div>
         </div>
-        <p class="text-center text-neutral-400 text-xs mt-8 uppercase tracking-widest font-bold">Empowering Organizations Across Global Frameworks</p>
+        <p class="text-center text-neutral-600 text-xs mt-8 uppercase tracking-widest font-bold">Empowering Organizations Across Global Frameworks</p>
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
@@ -184,7 +184,7 @@ const features = [
         ].map(item => (
           <div class="text-center p-6 rounded-xl border border-neutral-100 bg-neutral-50 hover:bg-white hover:shadow-enterprise transition-all group">
             <div class="text-proofyx-blue mb-4 flex justify-center group-hover:scale-110 transition-transform" set:html={item.icon}></div>
-            <h4 class="font-bold text-neutral-900 text-sm uppercase tracking-wider">{item.title}</h4>
+            <h3 class="font-bold text-neutral-900 text-sm uppercase tracking-wider">{item.title}</h3>
           </div>
         ))}
       </div>
@@ -211,7 +211,7 @@ const features = [
         <div class="flex gap-6">
           <div class="w-12 h-12 bg-proofyx-blue/20 text-proofyx-blue rounded-xl flex items-center justify-center shrink-0 font-bold text-xl border border-proofyx-blue/30 shadow-[0_0_15px_rgba(37,99,235,0.2)]" role="img" aria-label="Checkmark">✓</div>
           <div>
-            <h4 class="text-xl font-bold mb-3 text-white">Evidence-First Approach</h4>
+            <h3 class="text-xl font-bold mb-3 text-white">Evidence-First Approach</h3>
             <p class="text-white/60 leading-relaxed">Every control and policy event is backed by verifiable evidence. No claims without proof.</p>
           </div>
         </div>
@@ -219,7 +219,7 @@ const features = [
         <div class="flex gap-6">
           <div class="w-12 h-12 bg-proofyx-blue/20 text-proofyx-blue rounded-xl flex items-center justify-center shrink-0 font-bold text-xl border border-proofyx-blue/30 shadow-[0_0_15px_rgba(37,99,235,0.2)]" role="img" aria-label="Checkmark">✓</div>
           <div>
-            <h4 class="text-xl font-bold mb-3 text-white">Clear Pass/Fail Visibility</h4>
+            <h3 class="text-xl font-bold mb-3 text-white">Clear Pass/Fail Visibility</h3>
             <p class="text-white/60 leading-relaxed">Know your status at a glance. Green means compliant, red means action required. No ambiguity.</p>
           </div>
         </div>
@@ -227,7 +227,7 @@ const features = [
         <div class="flex gap-6">
           <div class="w-12 h-12 bg-proofyx-blue/20 text-proofyx-blue rounded-xl flex items-center justify-center shrink-0 font-bold text-xl border border-proofyx-blue/30 shadow-[0_0_15px_rgba(37,99,235,0.2)]" role="img" aria-label="Checkmark">✓</div>
           <div>
-            <h4 class="text-xl font-bold mb-3 text-white">Built for Audits</h4>
+            <h3 class="text-xl font-bold mb-3 text-white">Built for Audits</h3>
             <p class="text-white/60 leading-relaxed">Complete audit trails, timestamped logs, and evidence attachments. Ready for assessors instantly.</p>
           </div>
         </div>
@@ -235,7 +235,7 @@ const features = [
         <div class="flex gap-6">
           <div class="w-12 h-12 bg-proofyx-blue/20 text-proofyx-blue rounded-xl flex items-center justify-center shrink-0 font-bold text-xl border border-proofyx-blue/30 shadow-[0_0_15px_rgba(37,99,235,0.2)]" role="img" aria-label="Checkmark">✓</div>
           <div>
-            <h4 class="text-xl font-bold mb-3 text-white">Regulated Environments</h4>
+            <h3 class="text-xl font-bold mb-3 text-white">Regulated Environments</h3>
             <p class="text-white/60 leading-relaxed">Purpose-built for organizations that must definitively demonstrate compliance.</p>
           </div>
         </div>
@@ -243,7 +243,7 @@ const features = [
         <div class="flex gap-6">
           <div class="w-12 h-12 bg-proofyx-blue/20 text-proofyx-blue rounded-xl flex items-center justify-center shrink-0 font-bold text-xl border border-proofyx-blue/30 shadow-[0_0_15px_rgba(37,99,235,0.2)]" role="img" aria-label="Checkmark">✓</div>
           <div>
-            <h4 class="text-xl font-bold mb-3 text-white">Least Privilege Default</h4>
+            <h3 class="text-xl font-bold mb-3 text-white">Least Privilege Default</h3>
             <p class="text-white/60 leading-relaxed">Role-based access controls ensure users only see what they need. Security meets compliance.</p>
           </div>
         </div>
@@ -251,7 +251,7 @@ const features = [
         <div class="flex gap-6">
           <div class="w-12 h-12 bg-proofyx-blue/20 text-proofyx-blue rounded-xl flex items-center justify-center shrink-0 font-bold text-xl border border-proofyx-blue/30 shadow-[0_0_15px_rgba(37,99,235,0.2)]" role="img" aria-label="Checkmark">✓</div>
           <div>
-            <h4 class="text-xl font-bold mb-3 text-white">Complete Audit Trails</h4>
+            <h3 class="text-xl font-bold mb-3 text-white">Complete Audit Trails</h3>
             <p class="text-white/60 leading-relaxed">Every action is logged with who, what, when, and why. Immutable records for verification.</p>
           </div>
         </div>

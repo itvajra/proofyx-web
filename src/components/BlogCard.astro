@@ -77,7 +77,7 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
 
     <div class="mt-auto flex items-center justify-between">
       <span class="text-neutral-500 text-xs font-medium">{readingTime}</span>
-      <a href={`/blog/${slug}`} class="text-proofyx-blue text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+      <a href={`/blog/${slug}`} class="text-proofyx-blue text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all" aria-label={`Read more about ${title}`}>
         Read More <span>→</span>
       </a>
     </div>

@@ -47,7 +47,7 @@ const frameworks = [
                 <svg class="w-6 h-6 text-proofyx-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A2 2 0 013 15.488V5.512a2 2 0 011.553-1.944L9 1l6 3 6-3v9.976a2 2 0 01-1.553 1.944L15 14l-6 6z"></path></svg>
               </div>
               <div>
-                <h4 class="font-bold text-neutral-900 text-lg mb-2">Guided Control Mapping</h4>
+                <h3 class="font-bold text-neutral-900 text-lg mb-2">Guided Control Mapping</h3>
                 <p class="text-neutral-600">Organize requirements by framework. Map controls to requirements, get guided next steps, and track implementation status across CMMC, NIST, and more.</p>
               </div>
             </div>
@@ -57,7 +57,7 @@ const frameworks = [
                 <svg class="w-6 h-6 text-proofyx-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               </div>
               <div>
-                <h4 class="font-bold text-neutral-900 text-lg mb-2">Clear Pass/Fail Status</h4>
+                <h3 class="font-bold text-neutral-900 text-lg mb-2">Clear Pass/Fail Status</h3>
                 <p class="text-neutral-600">Every control shows a clear status: compliant (green), non-compliant (red), or in progress. No ambiguity about your current compliance posture.</p>
               </div>
             </div>
@@ -67,7 +67,7 @@ const frameworks = [
                 <svg class="w-6 h-6 text-proofyx-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
               </div>
               <div>
-                <h4 class="font-bold text-neutral-900 text-lg mb-2">Evidence Integrity</h4>
+                <h3 class="font-bold text-neutral-900 text-lg mb-2">Evidence Integrity</h3>
                 <p class="text-neutral-600">A centralized, immutable store for all audit evidence. All files are timestamped and linked to the uploading user for complete accountability.</p>
               </div>
             </div>
@@ -77,7 +77,7 @@ const frameworks = [
                 <svg class="w-6 h-6 text-proofyx-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
               </div>
               <div>
-                <h4 class="font-bold text-neutral-900 text-lg mb-2">Audit-Ready Reports</h4>
+                <h3 class="font-bold text-neutral-900 text-lg mb-2">Audit-Ready Reports</h3>
                 <p class="text-neutral-600">Generate reports that show status, evidence, and history for each requirement. Purpose-built to satisfy professional assessors.</p>
               </div>
             </div>
@@ -128,7 +128,7 @@ const frameworks = [
             <div class="w-12 h-12 bg-proofyx-blue/20 text-proofyx-blue rounded-xl flex items-center justify-center font-bold text-xl mb-6 shadow-[0_0_15px_rgba(37,99,235,0.2)] border border-proofyx-blue/30" set:html={item.icon}>
             </div>
             
-            <h4 class="text-xl font-bold mb-3 text-white relative z-10">{item.title}</h4>
+            <h3 class="text-xl font-bold mb-3 text-white relative z-10">{item.title}</h3>
             <p class="text-white/60 text-sm leading-relaxed relative z-10">{item.desc}</p>
           </div>
         ))}
@@ -152,14 +152,14 @@ const frameworks = [
             <div class="text-proofyx-blue mb-6 group-hover:scale-110 transition-transform">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" /></svg>
             </div>
-            <h4 class="text-xl font-bold mb-4">Immutable Audit Trails</h4>
+            <h3 class="text-xl font-bold mb-4">Immutable Audit Trails</h3>
             <p class="text-neutral-600 leading-relaxed">Every change to compliance status is logged with who made the change, when, and why. No retroactive edits or hidden modifications possible.</p>
           </div>
           <div class="p-8 rounded-2xl bg-neutral-50 border border-neutral-100 group">
             <div class="text-proofyx-blue mb-6 group-hover:scale-110 transition-transform">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
             </div>
-            <h4 class="text-xl font-bold mb-4">Attestation & Approval</h4>
+            <h3 class="text-xl font-bold mb-4">Attestation & Approval</h3>
             <p class="text-neutral-600 leading-relaxed">Controls can require attestation from responsible parties. Digital signatures become part of the permanent audit trail for verification.</p>
           </div>
         </div>
