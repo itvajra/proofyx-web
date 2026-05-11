@@ -9,12 +9,13 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-200">
+<header id="main-header" class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-200 transition-all duration-300">
   <div class="container mx-auto px-6 h-20 flex items-center justify-between">
-    <a href="/" class="flex items-center no-underline">
+    <a href="/" class="flex items-center no-underline relative z-50">
       <img src="/images/logo.png" alt="Proofyx" class="h-10 w-auto" />
     </a>
 
+    <!-- Desktop Navigation -->
     <nav class="hidden md:flex items-center gap-8">
       {navLinks.map(link => (
         <a 
@@ -32,7 +33,128 @@ const currentPath = Astro.url.pathname;
     </nav>
 
     <div class="flex items-center gap-4">
-      <a href="/#get-started" class="bg-proofyx-blue text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-proofyx-blue-dark transition-all">Get Started</a>
+      <a href="/#get-started" class="hidden md:inline-block bg-proofyx-blue text-white px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-proofyx-blue-dark transition-all shadow-sm">Get Started</a>
+      
+      <!-- Mobile Menu Open Button -->
+      <button 
+        id="mobile-menu-open" 
+        class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-1.5 focus:outline-none"
+        aria-label="Open mobile menu"
+      >
+        <span class="block w-6 h-0.5 bg-neutral-800"></span>
+        <span class="block w-6 h-0.5 bg-neutral-800"></span>
+        <span class="block w-6 h-0.5 bg-neutral-800"></span>
+      </button>
     </div>
   </div>
 </header>
+
+<!-- Mobile Menu Overlay (Moved outside header to escape backdrop-filter containing block) -->
+<div 
+  id="mobile-menu" 
+  class="fixed inset-0 bg-white z-[100] md:hidden flex flex-col transform translate-x-full transition-transform duration-500 ease-in-out"
+>
+  <!-- Mobile Menu Header -->
+  <div class="h-20 px-6 flex items-center justify-between border-b border-neutral-100">
+    <a href="/" class="flex items-center no-underline">
+      <img src="/images/logo.png" alt="Proofyx" class="h-10 w-auto" />
+    </a>
+    <button 
+      id="mobile-menu-close" 
+      class="w-10 h-10 flex items-center justify-center focus:outline-none text-neutral-800 hover:text-proofyx-blue transition-colors" 
+      aria-label="Close mobile menu"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Content -->
+  <div class="flex-grow flex flex-col items-center justify-center p-8 space-y-8">
+    <nav class="flex flex-col items-center space-y-6 w-full">
+      {navLinks.map((link, index) => (
+        <a 
+          href={link.href}
+          class:list={[
+            "text-2xl font-semibold transition-all duration-300 hover:text-proofyx-blue hover:scale-105 transform",
+            currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) 
+              ? "text-proofyx-blue" 
+              : "text-neutral-700"
+          ]}
+          style={`transition-delay: ${index * 50}ms`}
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+    
+    <div class="w-full pt-6 flex flex-col items-center space-y-6">
+      <div class="h-px w-12 bg-neutral-200"></div>
+      <a href="/#get-started" class="bg-proofyx-blue text-white w-full max-w-xs py-3.5 rounded-xl text-lg font-semibold text-center hover:bg-proofyx-blue-dark transition-all shadow-lg shadow-proofyx-blue/20">
+        Get Started
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Footer/Decor -->
+  <div class="p-8 text-center">
+    <p class="text-neutral-400 text-sm font-medium">© 2026 Proofyx. All rights reserved.</p>
+  </div>
+</div>
+
+<script>
+  function initMobileMenu() {
+    const openBtn = document.getElementById('mobile-menu-open');
+    const closeBtn = document.getElementById('mobile-menu-close');
+    const menu = document.getElementById('mobile-menu');
+    const links = document.querySelectorAll('#mobile-menu a');
+
+    if (!openBtn || !closeBtn || !menu) return;
+
+    function openMenu() {
+      menu.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      menu.classList.add('translate-x-full');
+      document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openMenu();
+    });
+
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeMenu();
+    });
+
+    // Close menu when a link is clicked
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        closeMenu();
+      });
+    });
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        closeMenu();
+      }
+    });
+  }
+
+  // Initialize on page load and after swaps
+  initMobileMenu();
+  document.addEventListener('astro:after-swap', initMobileMenu);
+</script>
+
+<style>
+  #mobile-menu {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+</style>
