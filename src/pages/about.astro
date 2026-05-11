@@ -1,44 +1,179 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
 import CTASection from '../components/CTASection.astro';
 ---
 
-<BaseLayout title="About Proofyx" description="Learn about Proofyx and our mission to simplify compliance and policy management for enterprise organizations.">
-  <section class="py-24 bg-white">
-    <div class="container mx-auto px-6">
-      <div class="max-w-3xl mx-auto text-center mb-20">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-neutral-900">Our Mission</h1>
+<BaseLayout title="About Proofyx" description="Learn about Proofyx and our mission to make compliance proof as rigorous as the compliance itself.">
+
+  <!-- Hero -->
+  <section class="relative pt-32 pb-20 bg-white overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-proofyx-blue-light/50 to-transparent pointer-events-none"></div>
+    <div class="container mx-auto px-6 max-w-5xl relative z-10">
+      <div class="max-w-3xl">
+        <span class="inline-block px-4 py-1.5 bg-proofyx-blue-light text-proofyx-blue text-xs font-bold uppercase tracking-widest rounded-full mb-6">
+          Our Story
+        </span>
+        <h1 class="text-4xl md:text-6xl font-bold text-neutral-900 mb-8 leading-tight">
+          Compliance should be <span class="text-proofyx-blue">provable</span>, not just claimable.
+        </h1>
         <p class="text-xl text-neutral-600 leading-relaxed">
-          At Proofyx, we believe that compliance should be a source of confidence, not a burden. We build tools that help organizations move from manual checklists to automated, audit-ready proof.
+          Proofyx was built by people who have sat across the table from auditors and felt the gap between "we do this" and "here's the proof." We built the system we wished we'd had.
         </p>
       </div>
+    </div>
+  </section>
 
-      <div class="grid md:grid-cols-2 gap-16 items-center mb-24">
+  <!-- Origin / Why We Built This -->
+  <section class="py-24 bg-neutral-50 border-y border-neutral-100">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center max-w-5xl mx-auto">
         <div>
-          <h2 class="text-3xl font-bold mb-6">Built for High-Stakes Compliance</h2>
-          <p class="text-lg text-neutral-600 mb-8">
-            Whether you are a government contractor preparing for CMMC 2.0 or a fast-growing SaaS company managing SOC 2 requirements, Proofyx provides the infrastructure you need to succeed.
+          <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-6">Where this started</h2>
+          <p class="text-lg text-neutral-600 leading-relaxed mb-6">
+            The team behind Proofyx has spent years working with organizations navigating compliance — CMMC, NIST, SOC 2, internal audits. One pattern kept showing up: organizations doing real, serious security work that couldn't demonstrate it effectively when it mattered.
           </p>
-          <div class="space-y-4">
-            <div class="flex items-center gap-3">
-              <div class="w-2 h-2 bg-proofyx-blue rounded-full"></div>
-              <p class="font-bold text-neutral-900">Audit-Ready Evidence Library</p>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="w-2 h-2 bg-proofyx-blue rounded-full"></div>
-              <p class="font-bold text-neutral-900">End-to-End Policy Lifecycle</p>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="w-2 h-2 bg-proofyx-blue rounded-full"></div>
-              <p class="font-bold text-neutral-900">Automated Framework Mapping</p>
-            </div>
-          </div>
+          <p class="text-lg text-neutral-600 leading-relaxed mb-6">
+            Compliance was treated as a documentation project rather than an operational discipline. Evidence was scattered across inboxes, shared drives, and spreadsheets. Policies existed but had no audit trail of who approved them or whether anyone actually read them.
+          </p>
+          <p class="text-lg text-neutral-600 leading-relaxed">
+            When the assessor arrived, there was scrambling. Not because the controls weren't in place, but because the proof wasn't organized. We built Proofyx to fix that specific problem.
+          </p>
         </div>
-        <div class="bg-neutral-50 rounded-2xl p-12 aspect-video flex items-center justify-center">
-           <div class="text-neutral-300 font-bold text-5xl opacity-20 uppercase tracking-widest">About Proofyx</div>
+        <div class="space-y-6">
+          {[
+            { label: "The Problem", text: "Evidence scattered across 12 different tools with no traceability to specific controls." },
+            { label: "The Gap", text: "Policies approved in email, with no record of who signed off or when it became effective." },
+            { label: "The Cost", text: "Audit findings that weren't really compliance failures — just documentation failures." },
+            { label: "The Fix", text: "A single system where evidence, policies, and proof are connected and always audit-ready." }
+          ].map(item => (
+            <div class="p-6 bg-white rounded-xl border border-neutral-100 shadow-sm">
+              <div class="text-xs font-bold uppercase tracking-widest text-proofyx-blue mb-2">{item.label}</div>
+              <p class="text-neutral-700 leading-relaxed">{item.text}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   </section>
+
+  <!-- What We Believe -->
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">What We Believe</h2>
+        <p class="text-neutral-600 max-w-2xl mx-auto text-lg">
+          These aren't marketing talking points. They're the operating principles behind every product decision we make.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-10">
+        {[
+          {
+            icon: "🔍",
+            title: "Proof over claims",
+            text: "A compliance status that can't be demonstrated isn't a compliance status. Every control in Proofyx requires evidence — not just a checkbox."
+          },
+          {
+            icon: "📋",
+            title: "Accountability is not optional",
+            text: "Policies without named owners, evidence without authors, and approvals without timestamps are not useful artifacts. We build accountability into the workflow by default."
+          },
+          {
+            icon: "🏗️",
+            title: "Built for real audits",
+            text: "We've designed around what assessors actually ask for — not theoretical best practices. If a C3PAO showed up tomorrow, your Proofyx account should be ready."
+          },
+          {
+            icon: "🔒",
+            title: "Immutability matters",
+            text: "Retroactive edits are a liability. All audit trails in Proofyx are append-only. What was logged stays logged."
+          },
+          {
+            icon: "🧩",
+            title: "Compliance and governance are connected",
+            text: "Technical controls and organizational policies aren't separate workstreams. Proofyx links them so that your governance layer proves your security posture."
+          },
+          {
+            icon: "📈",
+            title: "Sustainable, not seasonal",
+            text: "Compliance that only exists during an audit window is compliance theater. We build for continuous operational practice, not one-time project sprints."
+          }
+        ].map(item => (
+          <div class="p-8 rounded-xl border border-neutral-100 bg-neutral-50 hover:bg-white hover:shadow-enterprise transition-all duration-300">
+            <div class="text-3xl mb-5">{item.icon}</div>
+            <h3 class="text-lg font-bold text-neutral-900 mb-3">{item.title}</h3>
+            <p class="text-neutral-600 text-sm leading-relaxed">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What We've Built -->
+  <section class="py-24 bg-neutral-900 text-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-proofyx-blue/10 to-transparent pointer-events-none"></div>
+    <div class="container mx-auto px-6 max-w-5xl relative z-10">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="inline-block px-4 py-1.5 bg-white/10 text-proofyx-blue-light text-xs font-bold uppercase tracking-widest rounded-full mb-6">
+            The Platform
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Two applications, one proof standard</h2>
+          <p class="text-white/70 text-lg leading-relaxed mb-8">
+            Proofyx is organized around the two pillars of demonstrable compliance: your technical controls and your governance policies. Each has its own purpose-built application, and both feed a unified audit record.
+          </p>
+          <div class="flex flex-col gap-4">
+            <Button href="/compliance" variant="outline" class="!border-white/30 !text-white hover:!bg-white/10 w-fit">
+              Compliance Module →
+            </Button>
+            <Button href="/policy" variant="outline" class="!border-white/30 !text-white hover:!bg-white/10 w-fit">
+              Policy Module →
+            </Button>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+            <div class="text-proofyx-blue font-bold text-xs uppercase tracking-widest mb-3">Compliance Module</div>
+            <h4 class="text-xl font-bold text-white mb-2">Controls & Evidence</h4>
+            <p class="text-white/60 text-sm leading-relaxed">Map requirements from CMMC 2.0, NIST 800-171, or your own internal framework. Attach evidence directly to controls. Track pass/fail status in real time.</p>
+          </div>
+          <div class="p-6 rounded-xl bg-white/5 border border-white/10">
+            <div class="text-proofyx-green font-bold text-xs uppercase tracking-widest mb-3">Policy Module</div>
+            <h4 class="text-xl font-bold text-white mb-2">Governance & Proof</h4>
+            <p class="text-white/60 text-sm leading-relaxed">Author policies with full version history. Route through approval workflows. Track employee acknowledgements. Connect policies to specific compliance requirements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who we serve -->
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Who Uses Proofyx</h2>
+        <p class="text-neutral-600 max-w-2xl mx-auto text-lg">
+          We work with organizations where compliance has real consequences — regulatory, contractual, or reputational.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {[
+          { label: "Government Contractors", desc: "Preparing for CMMC 2.0 assessments and maintaining SPRS scores." },
+          { label: "Security & Compliance Teams", desc: "Managing evidence collection and control status across complex environments." },
+          { label: "SaaS Platforms", desc: "Demonstrating SOC 2 readiness and satisfying enterprise customer security reviews." },
+          { label: "Fintech & Financial Services", desc: "Meeting regulatory requirements with a complete, demonstrable audit record." },
+          { label: "Healthcare Adjacent", desc: "Organizations handling sensitive data that need rigorous documentation of security practices." },
+          { label: "Internal Audit Functions", desc: "Teams responsible for governance and policy compliance across their organization." }
+        ].map(item => (
+          <div class="p-6 rounded-xl border border-neutral-100 bg-neutral-50 hover:bg-white hover:shadow-enterprise transition-all">
+            <h4 class="font-bold text-neutral-900 mb-2">{item.label}</h4>
+            <p class="text-neutral-600 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <CTASection />
 </BaseLayout>
