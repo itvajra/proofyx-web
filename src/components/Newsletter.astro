@@ -305,7 +305,7 @@ const {
 
   .newsletter-disclaimer {
     margin-top: 1.5rem;
-    margin-bottom: 3rem; /* Add space below for the recaptcha badge */
+    margin-bottom: 4rem; /* Add more space below for the recaptcha badge */
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.45);
     text-align: center;
@@ -318,14 +318,14 @@ const {
   /* Center reCAPTCHA badge within the form column */
   :global(.grecaptcha-badge) {
     position: absolute !important;
-    bottom: 0 !important;
+    bottom: -0.5rem !important;
     left: 50% !important;
-    transform: translateX(-50%) scale(0.7) !important;
+    transform: translateX(-50%) scale(0.95) !important;
     box-shadow: none !important;
     border-radius: 4px !important;
     overflow: hidden !important;
     z-index: 100 !important;
-    opacity: 0.5 !important;
+    opacity: 0.6 !important;
     transition: opacity 0.3s ease, transform 0.3s ease !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     transform-origin: center bottom !important;
@@ -333,7 +333,7 @@ const {
 
   :global(.grecaptcha-badge:hover) {
     opacity: 1 !important;
-    transform: translateX(-50%) scale(0.75) !important;
+    transform: translateX(-50%) scale(0.9) !important;
   }
 </style>
 
