@@ -15,6 +15,8 @@ const {
 } = Astro.props;
 ---
 
+<link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
+
 <section class="newsletter-section">
   <div class="newsletter-decor-1"></div>
   <div class="newsletter-decor-2"></div>
@@ -343,6 +345,9 @@ const {
 </style>
 
 <script is:inline>
+  var AUTOHIDE = Boolean(0);
+  var OPT_IN = Boolean(0);
+
   function invisibleCaptchaCallback() {
     var form = document.getElementById('sib-form');
     if (form) form.submit();
@@ -364,4 +369,4 @@ const {
 </script>
 
 <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-<script src="https://www.google.com/recaptcha/api.js?hl=en" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
