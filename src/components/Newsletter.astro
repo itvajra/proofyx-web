@@ -75,7 +75,7 @@ const {
                 <!-- Hidden Fields -->
                 <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none !important;">
                 <input type="hidden" name="locale" value="en">
-                <div class="g-recaptcha" data-sitekey="6LeKWuYsAAAAAA9TWyDS95FSEP-hmgBlQ4kCnGDo" data-callback="invisibleCaptchaCallback" data-size="invisible"></div>
+                <div class="g-recaptcha" data-sitekey="6LeKWuYsAAAAAA9TWyDS95FSEP-hmgBlQ4kCnGDo" data-callback="invisibleCaptchaCallback" data-size="invisible" onclick="executeCaptcha"></div>
               </form>
             </div>
           </div>
@@ -354,6 +354,11 @@ const {
 </style>
 
 <script is:inline>
+  function invisibleCaptchaCallback() {
+    var form = document.getElementById('sib-form');
+    if (form) form.submit();
+  }
+
   window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
   window.LOCALE = 'en';
   window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid.";
