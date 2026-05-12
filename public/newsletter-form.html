@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+    <style>
+        body { margin: 0; padding: 0; background: transparent; font-family: Inter, system-ui, sans-serif; color: white; overflow: hidden; }
+        .sib-form { background: transparent !important; padding: 0 !important; }
+        #sib-container { background: transparent !important; border: none !important; padding: 0 !important; max-width: 100% !important; }
+        
+        .input {
+            width: 100% !important;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            border-radius: 1rem !important;
+            padding: 1.25rem 1.5rem 1.25rem 3.5rem !important;
+            color: #ffffff !important;
+            font-size: 1rem !important;
+            transition: all 0.3s ease !important;
+            box-sizing: border-box !important;
+        }
+        .input:focus { border-color: #3b82f6 !important; outline: none !important; box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2) !important; }
+        
+        .input-wrapper { position: relative; width: 100%; margin-bottom: 1rem; }
+        .input-icon {
+            position: absolute; left: 1.25rem; top: 50%; transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.4); pointer-events: none; z-index: 10; display: flex; align-items: center;
+        }
+
+        .sib-form-block__button {
+            width: 100% !important;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+            color: #ffffff !important;
+            border: none !important;
+            border-radius: 1rem !important;
+            padding: 1.25rem 2rem !important;
+            font-size: 1.05rem !important;
+            font-weight: 700 !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            display: flex !important; align-items: center; justify-content: center; gap: 0.75rem !important;
+        }
+        .sib-form-block__button:hover { transform: translateY(-2px) !important; filter: brightness(1.1) !important; box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4) !important; }
+        
+        .sib-hide-loader-icon { display: none !important; }
+        .progress-indicator__icon { width: 20px !important; height: 20px !important; fill: #ffffff !important; margin-right: 10px; animation: sib-spin 2s linear infinite; }
+        @keyframes sib-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .sib-form-message-panel { border-radius: 1rem !important; padding: 1.25rem !important; margin-bottom: 2rem !important; }
+        .sib-form-message-panel--success { background: rgba(16, 185, 129, 0.1) !important; color: #34d399 !important; border: 1px solid rgba(16, 185, 129, 0.2) !important; }
+        .sib-form-message-panel--error { background: rgba(239, 68, 68, 0.1) !important; color: #fca5a5 !important; border: 1px solid rgba(239, 68, 68, 0.2) !important; }
+        
+        .g-recaptcha { margin: 10px auto; display: flex; justify-content: center; transform: scale(0.8); }
+        .sib-form-block p { display: none !important; }
+    </style>
+</head>
+<body>
+    <div id="sib-form-container" class="sib-form-container">
+        <div id="error-message" class="sib-form-message-panel">
+            <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                <span class="sib-form-message-panel__inner-text">Your subscription could not be saved. Please try again.</span>
+            </div>
+        </div>
+        <div id="success-message" class="sib-form-message-panel">
+            <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                <span class="sib-form-message-panel__inner-text">You're subscribed!</span>
+            </div>
+        </div>
+        <div id="sib-container" class="sib-container--large sib-container--vertical">
+            <form id="sib-form" method="POST" action="https://7e4e4106.sibforms.com/serve/MUIFAEUak_PICjKoWufnhLULj0ByRtFPKI-UBPVmSPEbrE2td5s4w9VIBOcnAr8VGF7Trc701nourkbkl_hnFGbmIwYz6xlVy01EzrcUaSN2Zelq2SEBb26Idgb1lmKN-Q3i4wNOzlVs4efU2s2tTx4P9FeGx9eprUGI97HdVLi-3q75kD8Se1RapwokWduD2G0oPI98ghI8dd1Z" data-type="subscription">
+                <div class="sib-input sib-form-block">
+                    <div class="form__entry input-wrapper">
+                        <div class="input-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                            </svg>
+                        </div>
+                        <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Email address" data-required="true" required />
+                    </div>
+                </div>
+                <div class="sib-form-block">
+                    <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+                        <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+                            <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                        </svg>
+                        Subscribe
+                    </button>
+                </div>
+                <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none !important;">
+                <input type="hidden" name="locale" value="en">
+                <div class="g-recaptcha" data-sitekey="6LeKWuYsAAAAAA9TWyDS95FSEP-hmgBlQ4kCnGDo" data-callback="invisibleCaptchaCallback" data-size="invisible" onclick="executeCaptcha"></div>
+            </form>
+        </div>
+    </div>
+
+    <script is:inline>
+        var AUTOHIDE = Boolean(0);
+        var OPT_IN = Boolean(0);
+        function invisibleCaptchaCallback() { var form = document.getElementById('sib-form'); if (form) form.submit(); }
+        window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+        window.LOCALE = 'en';
+        window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid.";
+        window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank.";
+        window.GENERIC_INVALID_MESSAGE = "The information provided is invalid.";
+        window.translation = { common: { selectedList: '{quantity} list selected', selectedLists: '{quantity} lists selected', selectedOption: '{quantity} selected', selectedOptions: '{quantity} selected' } };
+    </script>
+    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+</body>
+</html>
