@@ -37,7 +37,7 @@ const {
           <div class="form-outer-container">
             <!-- Brevo Form Start -->
             <div class="sib-form">
-              <div id="sib-form-container" class="sib-form-container">
+              <div id="sib-form-container" class="sib-form-container sib-form-container--flex">
                 <div id="error-message" class="sib-form-message-panel">
                   <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
                     <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
@@ -209,11 +209,28 @@ const {
     box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3) !important;
   }
 
+  /* Reorder panels BELOW the form so scroll target is lower on page */
+  .sib-form-container--flex {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Form container goes first (order 1), messages go after (order 2) */
+  .sib-form-container--flex #sib-container {
+    order: 1 !important;
+  }
+
+  .sib-form-container--flex #error-message,
+  .sib-form-container--flex #success-message {
+    order: 2 !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+  }
+
   /* Success/Error Panels */
   .sib-form-message-panel {
     border-radius: 0.875rem !important;
     padding: 1rem 1.5rem !important;
-    margin-bottom: 1.5rem !important;
     font-size: 0.95rem !important;
     border: 1px solid transparent !important;
   }
@@ -239,43 +256,6 @@ const {
   }
 </style>
 
-<script>
-  // Advanced Scroll Correction for Sticky Header
-  function initScrollCorrection() {
-    const formContainer = document.getElementById('sib-form-container');
-    if (!formContainer) return;
-
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-          const target = mutation.target as HTMLElement;
-          // Check if error or success message just became visible
-          if (target.style.display === 'block' || (target.offsetParent !== null && target.style.display !== 'none')) {
-            const headerHeight = 130;
-            
-            // Small delay to ensure we execute AFTER Brevo's own scroll
-            setTimeout(() => {
-              const elementTop = target.getBoundingClientRect().top + window.pageYOffset;
-              window.scrollTo({
-                top: elementTop - headerHeight,
-                behavior: 'smooth'
-              });
-            }, 100);
-          }
-        }
-      });
-    });
-
-    const errorMsg = document.getElementById('error-message');
-    const successMsg = document.getElementById('success-message');
-
-    if (errorMsg) observer.observe(errorMsg, { attributes: true });
-    if (successMsg) observer.observe(successMsg, { attributes: true });
-  }
-
-  // Initialize on load
-  window.addEventListener('load', initScrollCorrection);
-</script>
 
 <style>
   .newsletter-section {
