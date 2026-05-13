@@ -55,7 +55,9 @@ const {
                   </div>
                 </div>
                 <div id="sib-container" class="sib-container--large sib-container--vertical">
-                  <p class="form-intro-label">Enter your email to subscribe</p>
+                  <div class="form-row">
+                    <p class="form-intro-label">Enter your email to subscribe</p>
+                  </div>
                   <form id="sib-form" method="POST" action="https://7e4e4106.sibforms.com/serve/MUIFAEUak_PICjKoWufnhLULj0ByRtFPKI-UBPVmSPEbrE2td5s4w9VIBOcnAr8VGF7Trc701nourkbkl_hnFGbmIwYz6xlVy01EzrcUaSN2Zelq2SEBb26Idgb1lmKN-Q3i4wNOzlVs4efU2s2tTx4P9FeGx9eprUGI97HdVLi-3q75kD8Se1RapwokWduD2G0oPI98ghI8dd1Z" data-type="subscription">
                     <div class="form-row">
                       <div class="sib-input sib-form-block">
@@ -171,8 +173,8 @@ const {
     color: #3b82f6;
   }
 
-  /* Force hide any white backgrounds from Brevo containers */
-  .entry__field, .form__entry, .form__label-row {
+  /* Force hide any white backgrounds and extra spacing from Brevo containers */
+  .entry__field, .form__entry, .form__label-row, .sib-form-block, .sib-input {
     background: transparent !important;
     border: none !important;
     padding: 0 !important;
@@ -217,7 +219,7 @@ const {
     color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin: 0 0 1rem 0.25rem;
+    margin: 0 0 0.5rem 0.25rem !important; /* Slight nudge for alignment */
     padding: 0;
   }
 
