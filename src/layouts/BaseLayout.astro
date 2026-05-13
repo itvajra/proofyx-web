@@ -67,6 +67,10 @@ const socialImageURL = new URL(image, Astro.site);
 
     <!-- Brevo Newsletter Integration Styles -->
     <style is:global>
+      html {
+        scroll-padding-top: 150px; /* Offset for sticky header site-wide */
+      }
+
       @font-face {
           font-display: block;
           font-family: Roboto;
@@ -86,11 +90,12 @@ const socialImageURL = new URL(image, Astro.site);
       }
       :where(.sib-form-message-panel) { display: none; }
       :where(.sib-form-message-panel .sib-notification__icon) { width: 20px; height: 20px; }
+      #sib-container input:-ms-input-placeholder { font-family: Helvetica, sans-serif; text-align: left; color: #c0ccda; }
+      #sib-container input::placeholder { font-family: Helvetica, sans-serif; text-align: left; color: #c0ccda; }
+      #sib-container textarea::placeholder { font-family: Helvetica, sans-serif; text-align: left; color: #c0ccda; }
+      #sib-container a { text-decoration: underline; color: #2BB2FC; }
     </style>
     <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
-    
-    <!-- reCAPTCHA v3 -->
-    <script src="https://www.google.com/recaptcha/api.js?render=6LeKWuYsAAAAAA9TWyDS95FSEP-hmgBlQ4kCnGDo&hl=en" async defer></script>
   </head>
   <body class="min-h-screen flex flex-col">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:bg-white focus:text-proofyx-blue focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-proofyx-blue font-bold">Skip to content</a>
