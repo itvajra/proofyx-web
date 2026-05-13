@@ -11,69 +11,42 @@
             font-family: Roboto;
             src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
         }
-
         @font-face {
             font-display: fallback;
             font-family: Roboto;
             font-weight: 600;
             src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
         }
-
         @font-face {
             font-display: fallback;
             font-family: Roboto;
             font-weight: 700;
             src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
         }
-
-        :where(.sib-form-message-panel) {
-            display: none;
-        }
-
-        :where(.sib-form-message-panel .sib-notification__icon) {
-            width: 20px;
-            height: 20px;
-        }
-
-        #sib-container input:-ms-input-placeholder {
-            font-family: Helvetica, sans-serif;
-            text-align: left;
-            color: #c0ccda;
-        }
-
-        #sib-container input::placeholder {
-            font-family: Helvetica, sans-serif;
-            text-align: left;
-            color: #c0ccda;
-        }
-
-        #sib-container textarea::placeholder {
-            font-family: Helvetica, sans-serif;
-            text-align: left;
-            color: #c0ccda;
-        }
-
-        #sib-container a {
-            text-decoration: underline;
-            color: #2BB2FC;
-        }
+        :where(.sib-form-message-panel) { display: none; }
+        :where(.sib-form-message-panel .sib-notification__icon) { width: 20px; height: 20px; }
+        #sib-container input:-ms-input-placeholder { font-family: Helvetica, sans-serif; text-align: left; color: #c0ccda; }
+        #sib-container input::placeholder { font-family: Helvetica, sans-serif; text-align: left; color: #c0ccda; }
+        #sib-container textarea::placeholder { font-family: Helvetica, sans-serif; text-align: left; color: #c0ccda; }
+        #sib-container a { text-decoration: underline; color: #2BB2FC; }
     </style>
     <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 
-    <!-- Custom overrides for Proofyx dark theme -->
+    <!-- Proofyx dark theme overrides (CSS only, no HTML changes) -->
     <style>
         html, body {
             margin: 0;
             padding: 0;
             background: transparent;
             font-family: Inter, system-ui, sans-serif;
-            color: white;
             overflow: hidden;
         }
 
+        /* Strip Brevo chrome */
         .sib-form {
             background: transparent !important;
             padding: 0 !important;
+            text-align: left !important;
         }
 
         #sib-container {
@@ -82,6 +55,12 @@
             padding: 0 !important;
             max-width: 100% !important;
             text-align: left !important;
+        }
+
+        /* Remove default 8px padding wrappers vertical spacing */
+        [style*="padding: 8px 0"] {
+            padding: 0 !important;
+            margin-bottom: 0.75rem !important;
         }
 
         /* Hide Brevo's built-in text blocks */
@@ -93,20 +72,35 @@
         /* Email input */
         .input {
             width: 100% !important;
-            background: rgba(255, 255, 255, 0.05) !important;
+            background: rgba(255, 255, 255, 0.06) !important;
             border: 1px solid rgba(255, 255, 255, 0.15) !important;
-            border-radius: 1rem !important;
-            padding: 1.25rem 1.5rem !important;
+            border-radius: 0.875rem !important;
+            padding: 1rem 1.25rem !important;
             color: #ffffff !important;
             font-size: 1rem !important;
+            font-family: Inter, system-ui, sans-serif !important;
             transition: all 0.3s ease !important;
             box-sizing: border-box !important;
+        }
+
+        .input::placeholder {
+            color: rgba(255, 255, 255, 0.4) !important;
         }
 
         .input:focus {
             border-color: #3b82f6 !important;
             outline: none !important;
             box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2) !important;
+            background: rgba(255, 255, 255, 0.09) !important;
+        }
+
+        /* Validation error label */
+        .entry__error {
+            font-size: 0.8rem !important;
+            color: #fca5a5 !important;
+            background: transparent !important;
+            border: none !important;
+            padding: 0.2rem 0 0 0.2rem !important;
         }
 
         /* Subscribe button */
@@ -115,16 +109,17 @@
             background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
             color: #ffffff !important;
             border: none !important;
-            border-radius: 1rem !important;
-            padding: 1.25rem 2rem !important;
-            font-size: 1.05rem !important;
+            border-radius: 0.875rem !important;
+            padding: 1rem 2rem !important;
+            font-size: 1rem !important;
             font-weight: 700 !important;
+            font-family: Inter, system-ui, sans-serif !important;
             cursor: pointer !important;
             transition: all 0.3s ease !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            gap: 0.75rem !important;
+            gap: 0.5rem !important;
         }
 
         .sib-form-block__button:hover {
@@ -133,33 +128,62 @@
             box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4) !important;
         }
 
-        /* Loader icon */
+        /* Loader icon sizing */
         .sib-hide-loader-icon { display: none !important; }
         .progress-indicator__icon {
             width: 20px !important;
             height: 20px !important;
             fill: #ffffff !important;
-            margin-right: 10px;
             animation: sib-spin 2s linear infinite;
         }
         @keyframes sib-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        /* Message panels */
-        .sib-form-message-panel--success {
-            background: rgba(16, 185, 129, 0.15) !important;
-            color: #34d399 !important;
-            border-color: rgba(16, 185, 129, 0.3) !important;
+        /* Success / error message panels */
+        .sib-form-message-panel {
             border-radius: 0.75rem !important;
-        }
-        .sib-form-message-panel--error {
-            background: rgba(239, 68, 68, 0.15) !important;
-            color: #fca5a5 !important;
-            border-color: rgba(239, 68, 68, 0.3) !important;
-            border-radius: 0.75rem !important;
+            padding: 0.875rem 1.25rem !important;
+            margin-bottom: 0.75rem !important;
+            font-size: 0.875rem !important;
+            font-family: Inter, system-ui, sans-serif !important;
         }
 
-        /* reCAPTCHA centering */
-        .g-recaptcha { display: flex; justify-content: center; transform: scale(0.85); transform-origin: center; }
+        #error-message.sib-form-message-panel {
+            background: rgba(239, 68, 68, 0.12) !important;
+            color: #fca5a5 !important;
+            border: 1px solid rgba(239, 68, 68, 0.3) !important;
+        }
+
+        #success-message.sib-form-message-panel {
+            background: rgba(16, 185, 129, 0.12) !important;
+            color: #6ee7b7 !important;
+            border: 1px solid rgba(16, 185, 129, 0.3) !important;
+        }
+
+        .sib-form-message-panel__text {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.5rem !important;
+            color: inherit !important;
+        }
+
+        .sib-icon { fill: currentColor !important; width: 18px !important; height: 18px !important; flex-shrink: 0; }
+
+        /* reCAPTCHA - centered below button */
+        .g-recaptcha {
+            display: flex !important;
+            justify-content: center !important;
+            margin-top: 0.25rem !important;
+            transform: scale(0.78) !important;
+            transform-origin: center top !important;
+        }
+
+        /* Force the floating badge to the left of the iframe */
+        .grecaptcha-badge {
+            left: 0 !important;
+            right: auto !important;
+            border-radius: 0 4px 4px 0 !important;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3) !important;
+        }
     </style>
 </head>
 <body>
@@ -242,8 +266,12 @@
                 </div>
 
                 <div style="padding: 8px 0;">
-                    <div class="g-recaptcha" data-sitekey="6LeKWuYsAAAAAA9TWyDS95FSEP-hmgBlQ4kCnGDo"
-                        data-callback="invisibleCaptchaCallback" data-size="invisible" onclick="executeCaptcha"></div>
+                    <div class="g-recaptcha" 
+                        data-sitekey="6LeKWuYsAAAAAA9TWyDS95FSEP-hmgBlQ4kCnGDo"
+                        data-callback="invisibleCaptchaCallback" 
+                        data-size="invisible" 
+                        data-badge="bottomleft"
+                        onclick="executeCaptcha"></div>
                 </div>
 
                 <input type="text" name="email_address_check" value="" class="input--hidden">

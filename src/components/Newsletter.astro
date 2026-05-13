@@ -1,8 +1,7 @@
 ---
 /**
  * Newsletter.astro
- * Premium Zero-Conflict Version - Embeds the official Brevo form via an isolated iframe
- * to bypass 401 errors and script conflicts.
+ * Revamped Premium Version - Wider layout, enhanced aesthetics, and isolated iframe.
  */
 
 interface Props {
@@ -17,42 +16,52 @@ const {
 ---
 
 <section class="newsletter-section">
-  <div class="newsletter-decor-1"></div>
-  <div class="newsletter-decor-2"></div>
+  <div class="newsletter-glow-top"></div>
+  <div class="newsletter-glow-bottom"></div>
 
-  <div class="newsletter-inner">
+  <div class="newsletter-container">
     <div class="newsletter-card">
-      <!-- Content Column -->
-      <div class="newsletter-content">
-        <span class="newsletter-badge">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5H17.5C20 5 22 7 22 9.5V17Z"></path>
-            <path d="m22 7-10 7L2 7"></path>
-          </svg>
-          Direct to Inbox
-        </span>
-        <h2 class="newsletter-heading">{heading}</h2>
-        <p class="newsletter-subtext">{subtext}</p>
-      </div>
-
-      <!-- Form Column (Isolated Iframe) -->
-      <div class="newsletter-form-container">
-        <div class="iframe-wrapper">
-          <iframe 
-            src="/newsletter-form.html" 
-            title="Newsletter Subscription Form"
-            class="newsletter-iframe"
-            scrolling="no"
-            loading="lazy"
-          ></iframe>
+      <div class="newsletter-grid">
+        <!-- Content Column -->
+        <div class="newsletter-info">
+          <div class="newsletter-badge">
+            <div class="badge-dot"></div>
+            <span class="badge-text">Newsletter</span>
+          </div>
+          <h2 class="newsletter-title">{heading}</h2>
+          <p class="newsletter-description">{subtext}</p>
+          
+          <div class="newsletter-features">
+            <div class="feature-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Weekly updates</span>
+            </div>
+            <div class="feature-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Audit readiness tips</span>
+            </div>
+          </div>
         </div>
-        
-        <p class="newsletter-disclaimer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </svg>
-          Privacy first. No spam. Unsubscribe anytime.
-        </p>
+
+        <!-- Form Column -->
+        <div class="newsletter-form-wrapper">
+          <div class="iframe-container">
+            <iframe
+              src="https://7e4e4106.sibforms.com/serve/MUIFAEUak_PICjKoWufnhLULj0ByRtFPKI-UBPVmSPEbrE2td5s4w9VIBOcnAr8VGF7Trc701nourkbkl_hnFGbmIwYz6xlVy01EzrcUaSN2Zelq2SEBb26Idgb1lmKN-Q3i4wNOzlVs4efU2s2tTx4P9FeGx9eprUGI97HdVLi-3q75kD8Se1RapwokWduD2G0oPI98ghI8dd1Z"
+              title="Newsletter Subscription Form"
+              class="newsletter-iframe"
+              frameborder="0"
+              scrolling="no"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="newsletter-footer-info">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>Privacy focused. No spam, ever.</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -60,129 +69,182 @@ const {
 
 <style>
   .newsletter-section {
-    padding: 6rem 1.5rem;
     position: relative;
+    padding: 8rem 2rem;
+    background-color: #050810;
     overflow: hidden;
-    background: #0a0f1e;
-    color: #ffffff;
-    font-family: Inter, system-ui, sans-serif;
+    color: #fff;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 
-  .newsletter-decor-1 {
+  .newsletter-glow-top {
     position: absolute;
-    top: -10%;
-    right: -5%;
-    width: 40%;
+    top: -20%;
+    right: -10%;
+    width: 60%;
     height: 60%;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
-    filter: blur(80px);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, transparent 70%);
+    filter: blur(100px);
     pointer-events: none;
   }
 
-  .newsletter-decor-2 {
+  .newsletter-glow-bottom {
     position: absolute;
-    bottom: -10%;
-    left: -5%;
-    width: 30%;
+    bottom: -20%;
+    left: -10%;
+    width: 50%;
     height: 50%;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
-    filter: blur(80px);
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+    filter: blur(100px);
     pointer-events: none;
   }
 
-  .newsletter-inner {
-    max-width: 1100px;
+  .newsletter-container {
+    max-width: 1280px;
     margin: 0 auto;
     position: relative;
-    z-index: 10;
+    z-index: 1;
   }
 
   .newsletter-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 2.5rem;
     padding: 4rem;
-    backdrop-filter: blur(24px);
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 5rem;
-    align-items: center;
-    box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.6);
-    position: relative;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   }
 
-  @media (max-width: 992px) {
-    .newsletter-card {
+  .newsletter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  @media (max-width: 1024px) {
+    .newsletter-grid {
       grid-template-columns: 1fr;
-      padding: 3rem 2rem;
-      gap: 3rem;
       text-align: center;
+      gap: 3rem;
+    }
+    
+    .newsletter-card {
+      padding: 3rem 2rem;
+    }
+  }
+
+  /* Content Styling */
+  .newsletter-info {
+    max-width: 540px;
+  }
+
+  @media (max-width: 1024px) {
+    .newsletter-info {
+      max-width: 100%;
+      margin: 0 auto;
     }
   }
 
   .newsletter-badge {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    background: rgba(37, 99, 235, 0.15);
-    color: #93c5fd;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    background: rgba(37, 99, 235, 0.1);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 100px;
+    margin-bottom: 2rem;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #3b82f6;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #3b82f6;
+  }
+
+  .badge-text {
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    padding: 0.6rem 1.2rem;
-    border-radius: 100px;
-    margin-bottom: 1.5rem;
-    border: 1px solid rgba(37, 99, 235, 0.3);
+    letter-spacing: 0.1em;
+    color: #93c5fd;
   }
 
-  .newsletter-heading {
-    font-size: clamp(2.25rem, 4.5vw, 3rem);
+  .newsletter-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 800;
-    color: #ffffff;
-    line-height: 1.05;
-    margin: 0 0 1.5rem 0;
-    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    background: linear-gradient(to bottom right, #fff 50%, rgba(255,255,255,0.6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  .newsletter-subtext {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.7);
+  .newsletter-description {
+    font-size: 1.25rem;
     line-height: 1.6;
-    margin: 0;
-    max-width: 500px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 2.5rem;
   }
 
-  .newsletter-form-container {
+  .newsletter-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (max-width: 1024px) {
+    .newsletter-features {
+      align-items: center;
+    }
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+  }
+
+  .feature-item svg {
+    color: #10b981;
+  }
+
+  /* Form / Iframe Styling */
+  .newsletter-form-wrapper {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 1.5rem;
   }
 
-  .iframe-wrapper {
+  .iframe-container {
     width: 100%;
-    min-height: 380px; /* Adjust based on form height with recaptcha */
-    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem;
   }
 
   .newsletter-iframe {
     width: 100%;
-    height: 100%;
-    min-height: 380px;
+    height: 500px;
     border: none;
     background: transparent;
-    color-scheme: dark;
   }
 
-  .newsletter-disclaimer {
-    margin-top: 1rem;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.45);
-    text-align: center;
+  .newsletter-footer-info {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.4);
   }
 </style>
