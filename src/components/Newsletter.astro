@@ -55,6 +55,7 @@ const {
                   </div>
                 </div>
                 <div id="sib-container" class="sib-container--large sib-container--vertical">
+                  <p class="form-intro-label">Enter your email to subscribe</p>
                   <form id="sib-form" method="POST" action="https://7e4e4106.sibforms.com/serve/MUIFAEUak_PICjKoWufnhLULj0ByRtFPKI-UBPVmSPEbrE2td5s4w9VIBOcnAr8VGF7Trc701nourkbkl_hnFGbmIwYz6xlVy01EzrcUaSN2Zelq2SEBb26Idgb1lmKN-Q3i4wNOzlVs4efU2s2tTx4P9FeGx9eprUGI97HdVLi-3q75kD8Se1RapwokWduD2G0oPI98ghI8dd1Z" data-type="subscription">
                     <div class="form-row">
                       <div class="sib-input sib-form-block">
@@ -207,6 +208,17 @@ const {
     transform: translateY(-2px) !important;
     filter: brightness(1.1) !important;
     box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3) !important;
+  }
+
+  /* Real label above email input — acts as scroll buffer and helpful UI */
+  .form-intro-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 1rem 0.25rem;
+    padding: 0;
   }
 
   /* Reorder panels BELOW the form so scroll target is lower on page */
