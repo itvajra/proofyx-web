@@ -47,8 +47,8 @@ const frameworks = [
                 <svg class="w-6 h-6 text-proofyx-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A2 2 0 013 15.488V5.512a2 2 0 011.553-1.944L9 1l6 3 6-3v9.976a2 2 0 01-1.553 1.944L15 14l-6 6z"></path></svg>
               </div>
               <div>
-                <h3 class="font-bold text-neutral-900 text-lg mb-2">Guided Control Mapping</h3>
-                <p class="text-neutral-600">Organize requirements by framework. Map controls to requirements, get guided next steps, and track implementation status across CMMC, NIST, and more.</p>
+                <h3 class="font-bold text-neutral-900 text-lg mb-2">Guided Onboarding & Assessments</h3>
+                <p class="text-neutral-600">Utilize our step-by-step onboarding wizard to initialize frameworks. Seamlessly navigate and answer assessment controls for CMMC, NIST, and custom requirements.</p>
               </div>
             </div>
             
@@ -57,8 +57,8 @@ const frameworks = [
                 <svg class="w-6 h-6 text-proofyx-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               </div>
               <div>
-                <h3 class="font-bold text-neutral-900 text-lg mb-2">Clear Pass/Fail Status</h3>
-                <p class="text-neutral-600">Every control shows a clear status: compliant (green), non-compliant (red), or in progress. No ambiguity about your current compliance posture.</p>
+                <h3 class="font-bold text-neutral-900 text-lg mb-2">Real-time Progress Dashboard</h3>
+                <p class="text-neutral-600">Monitor your operational health with a centralized dashboard. Track active frameworks, view overall completion percentages, and identify pending actions at a glance.</p>
               </div>
             </div>
 
@@ -67,8 +67,8 @@ const frameworks = [
                 <svg class="w-6 h-6 text-proofyx-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
               </div>
               <div>
-                <h3 class="font-bold text-neutral-900 text-lg mb-2">Evidence Integrity</h3>
-                <p class="text-neutral-600">A centralized, immutable store for all audit evidence. All files are timestamped and linked to the uploading user for complete accountability.</p>
+                <h3 class="font-bold text-neutral-900 text-lg mb-2">Centralized Document Evidence</h3>
+                <p class="text-neutral-600">A secure, organized repository for all audit evidence. Categorize files as policies or evidence, and link them directly to specific framework controls.</p>
               </div>
             </div>
 
@@ -77,8 +77,8 @@ const frameworks = [
                 <svg class="w-6 h-6 text-proofyx-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
               </div>
               <div>
-                <h3 class="font-bold text-neutral-900 text-lg mb-2">Audit-Ready Reports</h3>
-                <p class="text-neutral-600">Generate reports that show status, evidence, and history for each requirement. Purpose-built to satisfy professional assessors.</p>
+                <h3 class="font-bold text-neutral-900 text-lg mb-2">Comprehensive Reporting</h3>
+                <p class="text-neutral-600">Generate executive summaries and detailed assessment reports. Export your complete compliance posture to satisfy auditors and professional assessors.</p>
               </div>
             </div>
           </div>
@@ -116,11 +116,11 @@ const frameworks = [
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {[
-          { step: "1", title: "Select Framework", desc: "Start with CMMC 2.0 or NIST. Requirements are organized by domain to keep implementation clear.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>` },
-          { step: "2", title: "Map Controls", desc: "Document how each requirement is met. Assign owners and set implementation status.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>` },
-          { step: "3", title: "Attach Evidence", desc: "Upload supporting documentation, logs, or screenshots for each individual control.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>` },
-          { step: "4", title: "Track Status", desc: "Monitor compliance status in real-time. Green means compliant, red means action required.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>` },
-          { step: "5", title: "Generate Reports", desc: "Create reports that show status, evidence, and complete history for assessors.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>` }
+          { step: "1", title: "Select Framework", desc: "Start with CMMC 2.0 or NIST. Launch the onboarding wizard to configure your environment.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>` },
+          { step: "2", title: "Assess Controls", desc: "Systematically review and answer controls within the assessment interface. Track completion progress.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>` },
+          { step: "3", title: "Attach Evidence", desc: "Upload supporting documentation to the centralized repository and link it to relevant controls.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path></svg>` },
+          { step: "4", title: "Monitor Dashboard", desc: "Use the command center to view active frameworks, recent history, and overall operational health.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>` },
+          { step: "5", title: "Generate Reports", desc: "Produce comprehensive assessment reports and track historical performance over time.", icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>` }
         ].map(item => (
           <div class="p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-proofyx-blue/50 transition-all duration-300 relative overflow-hidden group hover:-translate-y-1">
             <div class="absolute -right-2 -bottom-6 text-[10rem] font-bold text-white/[0.03] group-hover:text-white/[0.06] transition-colors pointer-events-none leading-none font-mono tracking-tighter">{item.step}</div>
