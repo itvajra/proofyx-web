@@ -10,7 +10,7 @@ interface Props {
 }
 
 const {
-  heading = "Compliance Insights Backed by Proof",
+  heading = "Compliance Insights",
   subtext = "Practical guidance on CMMC, audit readiness, evidence tracking, and compliance operations.",
 } = Astro.props;
 ---
@@ -135,7 +135,7 @@ const {
 
   .input-icon {
     position: absolute;
-    left: 1.25rem;
+    left: 1rem;
     top: 50%;
     transform: translateY(-50%);
     color: rgba(255, 255, 255, 0.4);
@@ -150,7 +150,7 @@ const {
     background: #0f172a !important;
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
     border-radius: 0.875rem !important;
-    padding: 0 1.25rem 0 3.5rem !important;
+    padding: 0 1.25rem 0 2.75rem !important;
     color: #ffffff !important;
     font-size: 1rem !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -320,9 +320,11 @@ const {
 
   .newsletter-grid {
     display: grid;
-    grid-template-columns: 1fr 0.9fr;
+    grid-template-columns: 1.2fr 1.1fr; /* First column is now slightly larger */
     gap: 4rem;
     align-items: center;
+    position: relative;
+    z-index: 10;
   }
 
   @media (max-width: 1024px) {
