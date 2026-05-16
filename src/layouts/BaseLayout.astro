@@ -12,6 +12,8 @@ interface Props {
   ogType?: string;
   hideHeader?: boolean;
   hideFooter?: boolean;
+  headerTransparent?: boolean;
+  backgroundClass?: string;
 }
 
 const { 
@@ -22,7 +24,9 @@ const {
   image = "/og-image.png",
   ogType = "website",
   hideHeader = false,
-  hideFooter = false
+  hideFooter = false,
+  headerTransparent = false,
+  backgroundClass = "bg-[#050810]"
 } = Astro.props;
 
 const metaTitle = seoTitle || `${title} | Proofyx`;
@@ -101,9 +105,9 @@ const socialImageURL = new URL(image, Astro.site);
     </style>
     <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
   </head>
-  <body class="min-h-screen flex flex-col bg-[#050810]">
+  <body class:list={["min-h-screen flex flex-col", backgroundClass]}>
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:bg-white focus:text-proofyx-blue focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-proofyx-blue font-bold">Skip to content</a>
-    {!hideHeader && <Header />}
+    {!hideHeader && <Header transparent={headerTransparent} />}
     <main id="main-content" class="flex-grow outline-none" tabindex="-1">
       <slot />
     </main>
