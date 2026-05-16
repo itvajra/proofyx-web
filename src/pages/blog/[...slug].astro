@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from 'astro:content';
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => {
+    return import.meta.env.DEV || !data.draft;
+  });
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings, remarkPluginFrontmatter } = await render(post);
+
+// Simple automated reading time calculation
+const wordCount = post.body ? post.body.split(/\s+/).length : 0;
+const minutes = Math.max(1, Math.ceil(wordCount / 200));
+const calculatedReadingTime = `${minutes} min read`;
+---
+
+<BlogPostLayout 
+  frontmatter={{...post.data, readingTime: calculatedReadingTime}} 
+  slug={post.id} 
+  headings={headings}
+>
+  <Content />
+</BlogPostLayout>

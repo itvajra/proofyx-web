@@ -1,0 +1,60 @@
+---
+const footerLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'Compliance', href: '/compliance' },
+  { name: 'Policy', href: '/policy' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Privacy', href: '/privacy' },
+  { name: 'Contact', href: '/contact' },
+];
+---
+
+<footer class="bg-neutral-50 border-t border-neutral-200 pt-16 pb-12">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <div class="md:col-span-1">
+        <a href="/" class="mb-6 inline-block">
+          <img src="/images/logo.png" alt="Proofyx" class="h-8 w-auto" width="112" height="32" />
+        </a>
+        <p class="text-neutral-600 text-sm leading-relaxed max-w-xs">
+          The enterprise compliance proof platform focused on audit-ready evidence and policy lifecycle management.
+        </p>
+      </div>
+      
+      <div class="md:col-span-1">
+        <h2 class="text-neutral-900 font-semibold mb-6">Platform</h2>
+          <ul class="space-y-4">
+            <li><a href="/compliance" class="text-neutral-600 hover:text-proofyx-blue text-sm transition-colors">Compliance Module</a></li>
+            <li><a href="/policy" class="text-neutral-600 hover:text-proofyx-blue text-sm transition-colors">Policy Module</a></li>
+          </ul>
+      </div>
+
+      <div class="md:col-span-1">
+        <h2 class="text-neutral-900 font-semibold mb-6">Resources</h2>
+        <ul class="space-y-4">
+          <li><a href="/blog" class="text-neutral-600 hover:text-proofyx-blue text-sm transition-colors">Blog & Guides</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-1">
+        <h2 class="text-neutral-900 font-semibold mb-6">Company</h2>
+        <ul class="space-y-4">
+          <li><a href="https://itvajra.com" target="_blank" rel="noopener noreferrer" class="text-neutral-600 hover:text-proofyx-blue text-sm transition-colors">IT Vajra</a></li>
+          <li><a href="/about" class="text-neutral-600 hover:text-proofyx-blue text-sm transition-colors">About Us</a></li>
+          <li><a href="/contact" class="text-neutral-600 hover:text-proofyx-blue text-sm transition-colors">Contact</a></li>
+          <li><a href="/privacy" class="text-neutral-600 hover:text-proofyx-blue text-sm transition-colors">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-neutral-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-neutral-600 text-xs">
+        © {new Date().getFullYear()} Proofyx. A product of <a href="https://itvajra.com" target="_blank" rel="noopener noreferrer" class="hover:text-proofyx-blue transition-colors">IT Vajra</a>. All rights reserved.
+      </p>
+      <div class="flex gap-6">
+        <a href="https://linkedin.com/company/proofyx" target="_blank" rel="noopener noreferrer" class="text-neutral-600 hover:text-proofyx-blue transition-colors text-xs font-medium">LinkedIn</a>
+        <a href="https://twitter.com/proofyx" target="_blank" rel="noopener noreferrer" class="text-neutral-600 hover:text-proofyx-blue transition-colors text-xs font-medium">Twitter</a>
+      </div>
+    </div>
+  </div>
+</footer>

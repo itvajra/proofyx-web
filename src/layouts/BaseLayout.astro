@@ -1,0 +1,138 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  image?: string;
+  ogType?: string;
+  hideHeader?: boolean;
+  hideFooter?: boolean;
+  headerTransparent?: boolean;
+  backgroundClass?: string;
+}
+
+const { 
+  title, 
+  description = "Proofyx is an enterprise compliance proof platform focused on audit-ready evidence and policy lifecycle management.",
+  seoTitle,
+  seoDescription,
+  image = "/og-image.png",
+  ogType = "website",
+  hideHeader = false,
+  hideFooter = false,
+  headerTransparent = false,
+  backgroundClass = "bg-[#050810]"
+} = Astro.props;
+
+const metaTitle = seoTitle || `${title} | Proofyx`;
+const metaDescription = seoDescription || description;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(image, Astro.site);
+---
+
+<!doctype html>
+<html lang="en" class:list={[{ 'is-dev': import.meta.env.DEV }]}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    </noscript>
+    <meta name="generator" content={Astro.generator} />
+    
+    <title>{metaTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:site_name" content="Proofyx" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={metaTitle} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={metaTitle} />
+    <meta property="twitter:description" content={metaDescription} />
+    <meta property="twitter:image" content={socialImageURL} />
+    <meta property="twitter:image:alt" content={metaTitle} />
+
+    <!-- Brevo Newsletter Integration Styles -->
+    <style is:global>
+      html {
+        scroll-padding-top: 150px; /* Offset for sticky header site-wide */
+      }
+
+      @font-face {
+          font-display: swap;
+          font-family: Roboto;
+          src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
+      }
+      @font-face {
+          font-display: swap;
+          font-family: Roboto;
+          font-weight: 600;
+          src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
+      }
+      @font-face {
+          font-display: swap;
+          font-family: Roboto;
+          font-weight: 700;
+          src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
+      }
+      :where(.sib-form-message-panel) { display: none; }
+      :where(.sib-form-message-panel .sib-notification__icon) { width: 20px; height: 20px; }
+      #sib-container input:-ms-input-placeholder { font-family: Helvetica, sans-serif; text-align: left; color: #c0ccda; }
+      #sib-container input::placeholder { font-family: Helvetica, sans-serif; text-align: left; color: #c0ccda; }
+      #sib-container textarea::placeholder { font-family: Helvetica, sans-serif; text-align: left; color: #c0ccda; }
+      #sib-container a { text-decoration: underline; color: #2BB2FC; }
+    </style>
+    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css" />
+  </head>
+  <body class:list={["min-h-screen flex flex-col", backgroundClass]}>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:bg-white focus:text-proofyx-blue focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-proofyx-blue font-bold">Skip to content</a>
+    {!hideHeader && <Header transparent={headerTransparent} />}
+    <main id="main-content" class="flex-grow outline-none" tabindex="-1">
+      <slot />
+    </main>
+    {!hideFooter && <Footer />}
+
+    <!-- Brevo Newsletter Initialization -->
+    <script is:inline>
+      window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+      window.LOCALE = 'en';
+      window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+      window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+      window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+      window.INVALID_NUMBER = "The information provided is invalid. Please review the field format and try again.";
+      window.INVALID_DATE = "Please enter a valid date";
+      window.REQUIRED_MULTISELECT_MESSAGE = 'Please select at least 1 option';
+      window.translation = {
+          common: {
+              selectedList: '{quantity} list selected',
+              selectedLists: '{quantity} lists selected',
+              selectedOption: '{quantity} selected',
+              selectedOptions: '{quantity} selected',
+          }
+      };
+      var AUTOHIDE = Boolean(0);
+    </script>
+    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+  </body>
+</html>

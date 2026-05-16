@@ -1,0 +1,67 @@
+---
+import Button from './Button.astro';
+---
+
+<div class="bg-white p-8 md:p-12 rounded-2xl border border-neutral-200 shadow-enterprise">
+  <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+    <input type="hidden" name="access_key" value="5989ec4a-5f3c-49f0-bed7-a91b2d655148">
+    <input type="hidden" name="subject" value="New Contact Message from Proofyx">
+    <input type="hidden" name="from_name" value="Proofyx Website">
+    
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <label for="name" class="block text-sm font-bold text-neutral-900 mb-2">Full Name</label>
+        <input 
+          type="text" 
+          name="name" 
+          id="name"
+          required 
+          placeholder="Jane Doe" 
+          class="w-full px-4 py-3 rounded-md border border-neutral-200 focus:ring-2 focus:ring-proofyx-blue focus:border-proofyx-blue outline-none transition-all"
+        />
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-bold text-neutral-900 mb-2">Work Email</label>
+        <input 
+          type="email" 
+          name="email" 
+          id="email"
+          required 
+          placeholder="name@company.com" 
+          class="w-full px-4 py-3 rounded-md border border-neutral-200 focus:ring-2 focus:ring-proofyx-blue focus:border-proofyx-blue outline-none transition-all"
+        />
+      </div>
+    </div>
+    
+    <div>
+      <label for="topic" class="block text-sm font-bold text-neutral-900 mb-2">Topic</label>
+      <select 
+        name="topic" 
+        id="topic"
+        class="w-full px-4 py-3 rounded-md border border-neutral-200 focus:ring-2 focus:ring-proofyx-blue focus:border-proofyx-blue outline-none transition-all bg-white"
+      >
+        <option value="General Inquiry">General Inquiry</option>
+        <option value="Demo Request">Demo Request</option>
+        <option value="Support">Technical Support</option>
+        <option value="Partnership">Partnership</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="message" class="block text-sm font-bold text-neutral-900 mb-2">Message</label>
+      <textarea 
+        name="message" 
+        id="message"
+        required 
+        placeholder="How can we help you build audit-ready proof?" 
+        class="w-full px-4 py-3 rounded-md border border-neutral-200 h-32 focus:ring-2 focus:ring-proofyx-blue focus:border-proofyx-blue outline-none transition-all resize-none"
+      ></textarea>
+    </div>
+
+    <Button type="submit" class="w-full justify-center py-4">Send Message</Button>
+    
+    <p class="text-center text-xs text-neutral-400 mt-4">
+      By submitting this form, you agree to our privacy policy.
+    </p>
+  </form>
+</div>

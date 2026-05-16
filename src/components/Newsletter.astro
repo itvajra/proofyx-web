@@ -1,0 +1,392 @@
+---
+/**
+ * Newsletter.astro
+ * Premium Integrated Version - Updated with latest Brevo HTML structure.
+ */
+
+interface Props {
+  heading?: string;
+  subtext?: string;
+}
+
+const {
+  heading = "Compliance Insights",
+  subtext = "Practical guidance on CMMC, audit readiness, evidence tracking, and compliance operations.",
+} = Astro.props;
+---
+
+<section class="newsletter-section">
+  <div class="newsletter-glow-top"></div>
+  <div class="newsletter-glow-bottom"></div>
+
+  <div class="newsletter-container">
+    <div class="newsletter-card">
+      <div class="newsletter-grid">
+        <!-- Content Column -->
+        <div class="newsletter-info">
+          <div class="newsletter-badge">
+            <div class="badge-dot"></div>
+            <span class="badge-text">Newsletter</span>
+          </div>
+          <h2 class="newsletter-title">{heading}</h2>
+          <p class="newsletter-description">{subtext}</p>
+        </div>
+
+        <!-- Form Column -->
+        <div class="newsletter-form-wrapper">
+          <div class="form-outer-container">
+            <!-- Brevo Form Start -->
+            <div class="sib-form">
+              <div id="sib-form-container" class="sib-form-container sib-form-container--flex">
+                <div id="error-message" class="sib-form-message-panel">
+                  <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                    <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                      <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
+                    </svg>
+                    <span class="sib-form-message-panel__inner-text">Your subscription could not be saved. Please try again.</span>
+                  </div>
+                </div>
+                <div id="success-message" class="sib-form-message-panel">
+                  <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                    <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                      <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
+                    </svg>
+                    <span class="sib-form-message-panel__inner-text">You're subscribed! Check your inbox to confirm.</span>
+                  </div>
+                </div>
+                <div id="sib-container" class="sib-container--large sib-container--vertical">
+                  <div class="form-row">
+                    <p class="form-intro-label">Enter your email to subscribe</p>
+                  </div>
+                  <form id="sib-form" method="POST" action="https://7e4e4106.sibforms.com/serve/MUIFAEUak_PICjKoWufnhLULj0ByRtFPKI-UBPVmSPEbrE2td5s4w9VIBOcnAr8VGF7Trc701nourkbkl_hnFGbmIwYz6xlVy01EzrcUaSN2Zelq2SEBb26Idgb1lmKN-Q3i4wNOzlVs4efU2s2tTx4P9FeGx9eprUGI97HdVLi-3q75kD8Se1RapwokWduD2G0oPI98ghI8dd1Z" data-type="subscription">
+                    <div class="form-row">
+                      <div class="sib-input sib-form-block">
+                        <div class="form__entry entry_block">
+                          <div class="form__label-row">
+                            <div class="entry__field">
+                              <div class="input-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon">
+                                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                  <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" value="" placeholder="Email Address" data-required="true" required />
+                              </div>
+                            </div>
+                          </div>
+                          <label class="entry__error entry__error--primary"></label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="sib-form-block">
+                        <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
+                          <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+                            <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                          </svg>
+                          Subscribe
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <input type="text" name="email_address_check" value="" class="input--hidden">
+                    <input type="hidden" name="locale" value="en">
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- Brevo Form End -->
+          </div>
+          <div class="newsletter-footer-info">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>Privacy focused. No spam, ever.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style is:global>
+  /* Premium Dark Theme Overrides for Brevo Classes */
+  .sib-form {
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  
+  #sib-container {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    text-align: left !important;
+  }
+
+  .form-row {
+    padding: 0.5rem 0 !important;
+  }
+
+  .input-wrapper {
+    position: relative;
+    width: 100%;
+    background: transparent !important;
+  }
+
+  .input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    z-index: 10;
+    transition: color 0.3s ease;
+  }
+
+  #sib-container .input {
+    width: 100% !important;
+    height: 3.5rem !important; /* Increased height for better balance */
+    background: #0f172a !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 0.875rem !important;
+    padding: 0 1.25rem 0 2.75rem !important;
+    color: #ffffff !important;
+    font-size: 1rem !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  #sib-container .input::placeholder {
+    color: rgba(255, 255, 255, 0.45) !important;
+  }
+
+  #sib-container .input:focus {
+    border-color: #3b82f6 !important;
+    outline: none !important;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15), 0 8px 16px -4px rgba(0, 0, 0, 0.3) !important;
+    background: #131d33 !important;
+  }
+
+  #sib-container .input:focus + .input-icon {
+    color: #3b82f6;
+  }
+
+  /* Force hide any white backgrounds and extra spacing from Brevo containers */
+  .entry__field, .form__entry, .form__label-row, .sib-form-block, .sib-input {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .entry__error {
+    font-size: 0.85rem !important;
+    color: #fca5a5 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0.5rem 0 0 0.5rem !important;
+  }
+
+  .sib-form-block__button {
+    width: 100% !important;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 0.75rem !important;
+    padding: 1rem 2rem !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.625rem !important;
+  }
+
+  .sib-form-block__button:hover {
+    transform: translateY(-2px) !important;
+    filter: brightness(1.1) !important;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3) !important;
+  }
+
+  /* Real label above email input — acts as scroll buffer and helpful UI */
+  .form-intro-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.5rem 0.25rem !important; /* Slight nudge for alignment */
+    padding: 0;
+  }
+
+  /* Reorder panels BELOW the form so scroll target is lower on page */
+  .sib-form-container--flex {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Form container goes first (order 1), messages go after (order 2) */
+  .sib-form-container--flex #sib-container {
+    order: 1 !important;
+  }
+
+  .sib-form-container--flex #error-message,
+  .sib-form-container--flex #success-message {
+    order: 2 !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Success/Error Panels */
+  .sib-form-message-panel {
+    border-radius: 0.875rem !important;
+    padding: 1rem 1.5rem !important;
+    font-size: 0.95rem !important;
+    border: 1px solid transparent !important;
+  }
+
+  #error-message.sib-form-message-panel {
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: #fca5a5 !important;
+    border-color: rgba(239, 68, 68, 0.2) !important;
+  }
+
+  #success-message.sib-form-message-panel {
+    background: rgba(16, 185, 129, 0.1) !important;
+    color: #6ee7b7 !important;
+    border-color: rgba(16, 185, 129, 0.2) !important;
+  }
+
+  .sib-icon { fill: currentColor !important; width: 18px !important; height: 18px !important; }
+
+  /* Hide Brevo's built-in redundant text blocks */
+  .sib-form .sib-form-block p,
+  .sib-form .sib-text-form-block {
+    display: none !important;
+  }
+</style>
+
+
+<style>
+  .newsletter-section {
+    position: relative;
+    padding: 8rem 2rem;
+    background-color: #050810;
+    overflow: hidden;
+    color: #fff;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .newsletter-glow-top {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    filter: blur(100px);
+    pointer-events: none;
+  }
+
+  .newsletter-glow-bottom {
+    position: absolute;
+    bottom: -20%;
+    left: -10%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+    filter: blur(100px);
+    pointer-events: none;
+  }
+
+  .newsletter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .newsletter-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 2.5rem;
+    padding: 3.5rem 3rem;
+    backdrop-filter: blur(20px);
+  }
+
+  .newsletter-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1.1fr; /* First column is now slightly larger */
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+  }
+
+  @media (max-width: 1024px) {
+    .newsletter-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 3rem;
+    }
+    .newsletter-card { padding: 3rem 2rem; }
+  }
+
+  .newsletter-info {
+    max-width: 520px;
+  }
+
+  @media (max-width: 1024px) {
+    .newsletter-info {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  .newsletter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.4rem 1rem;
+    background: rgba(37, 99, 235, 0.06);
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .badge-dot { width: 6px; height: 6px; background-color: #3b82f6; border-radius: 50%; box-shadow: 0 0 10px rgba(59, 130, 246, 0.4); }
+  .badge-text { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #93c5fd; }
+
+  .newsletter-title {
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+    background: linear-gradient(to bottom right, #fff 60%, rgba(255,255,255,0.6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .newsletter-description { 
+    font-size: 1.125rem; 
+    line-height: 1.6; 
+    color: rgba(255, 255, 255, 0.5); 
+    margin-bottom: 0;
+  }
+
+  .newsletter-form-wrapper { width: 100%; display: flex; flex-direction: column; gap: 1.25rem; }
+  .form-outer-container {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 1.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 2rem;
+  }
+
+  .newsletter-footer-info { display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.85rem; color: rgba(255, 255, 255, 0.3); }
+</style>

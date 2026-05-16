@@ -1,73 +1,59 @@
-# Proofyx Public Website
+# Proofyx - Enterprise Compliance & Blog
 
-Enterprise compliance platform public website and landing pages.
+This is a modern, fast, and SEO-friendly website built with **Astro**, **Markdown**, and **Tailwind CSS**. It serves as the unified platform for Proofyx landing pages and resource center.
 
-## Overview
+## Project Structure
 
-Proofyx is an enterprise compliance platform focused on creating, managing, and proving compliance.
+- `src/pages/`: Main application routes (Home, Compliance, Policy, Blog).
+- `src/content/blog/`: Markdown files for blog posts.
+- `src/components/`: Reusable UI components (Header, Footer, Button, etc.).
+- `src/layouts/`: Shared page layouts with SEO metadata.
+- `src/styles/`: Global styles and Tailwind configuration.
 
-**Core Philosophy:** Compliance is not complete until you can prove it.
+## Setup Instructions
 
-## Platform Components
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-1. **Compliance Management** - Guide and track requirements and controls with clear pass/fail visibility
-2. **Policy Management** - Create, manage, and approve policies with full versioning
-3. **Script Integrity Monitoring** - PCI DSS 4.0 script integrity monitoring for payment pages
+2. **Run Locally**:
+   ```bash
+   npm run dev
+   ```
 
-## Site Structure
+3. **Build for Production**:
+   ```bash
+   npm run build
+   ```
 
-- `index.html` - Main homepage
-- `compliance.html` - Compliance Management product page
-- `policy.html` - Policy Management product page
-- `monitor.html` - Script Integrity Monitoring product page
-- `styles.css` - Shared design system and styles
+## Azure Static Web Apps Deployment
 
-## Running Locally
+To deploy this Astro site to **Azure Static Web Apps**:
 
-### Option 1: Python HTTP Server
+1. **Create a GitHub Repository**: Push this code to a new GitHub repository.
+2. **Azure Portal**:
+   - Create a new **Static Web App** resource.
+   - Choose **GitHub** as the source and select your repository.
+   - Under **Build Presets**, select **Astro**.
+   - App location: `/`
+   - Api location: (leave empty)
+   - Output location: `dist`
+3. **Finish**: Azure will automatically create a GitHub Action to build and deploy your site on every push.
+
+### Manual Azure CLI Deployment
+If you prefer the CLI:
 ```bash
-python3 -m http.server 8000
+# Build the project
+npm run build
+
+# Deploy using SWA CLI
+npx @azure/static-web-apps-cli deploy ./dist --app-name proofyx-web
 ```
 
-Then open: http://localhost:8000
+## Technology Stack
 
-### Option 2: Node.js HTTP Server
-```bash
-npx -y http-server -p 8000
-```
-
-Then open: http://localhost:8000
-
-### Option 3: PHP Built-in Server
-```bash
-php -S localhost:8000
-```
-
-Then open: http://localhost:8000
-
-## Design Principles
-
-- **Trust-First Design** - Professional, calm, audit-ready aesthetics
-- **Evidence-Based** - Every claim backed by proof
-- **Compliance-Focused** - Built for regulated environments
-- **Honest Messaging** - No marketing fluff, factual capabilities only
-
-## Brand Colors
-
-- **Trust Blue** (#0052CC) - Primary brand color
-- **Compliant Green** (#00875A) - Pass/compliant status
-- **Risk Red** (#DE350B) - Fail/risk status
-- **Neutral Palette** - Professional grays for content
-
-## Typography
-
-- **Primary Font**: Inter (Google Fonts)
-- **Monospace Font**: JetBrains Mono (for technical content)
-
-## Future Enhancements
-
-- Add contact forms
-- Implement demo request functionality
-- Add documentation section
-- Create resource library
-- Add customer testimonials (when available)
+- **Framework**: Astro 6.x
+- **Styling**: Tailwind CSS 4.0
+- **Content**: Markdown with Content Collections
+- **Design**: Enterprise SaaS aesthetic with Proofyx Blue (#1e4da2)
