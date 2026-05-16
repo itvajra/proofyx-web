@@ -3,11 +3,7 @@ import Button from './Button.astro';
 ---
 
 <div class="bg-white p-8 md:p-12 rounded-2xl border border-neutral-200 shadow-enterprise">
-  <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-    <input type="hidden" name="access_key" value="5989ec4a-5f3c-49f0-bed7-a91b2d655148">
-    <input type="hidden" name="subject" value="New Contact Message from Proofyx">
-    <input type="hidden" name="from_name" value="Proofyx Website">
-    
+  <form id="contact-form" class="space-y-6">
     <div class="grid md:grid-cols-2 gap-6">
       <div>
         <label for="name" class="block text-sm font-bold text-neutral-900 mb-2">Full Name</label>
@@ -21,7 +17,7 @@ import Button from './Button.astro';
         />
       </div>
       <div>
-        <label for="email" class="block text-sm font-bold text-neutral-900 mb-2">Work Email</label>
+        <label for="email" class="block text-sm font-bold text-neutral-900 mb-2">Email address</label>
         <input 
           type="email" 
           name="email" 
@@ -32,21 +28,33 @@ import Button from './Button.astro';
         />
       </div>
     </div>
-    
-    <div>
-      <label for="topic" class="block text-sm font-bold text-neutral-900 mb-2">Topic</label>
-      <select 
-        name="topic" 
-        id="topic"
-        class="w-full px-4 py-3 rounded-md border border-neutral-200 focus:ring-2 focus:ring-proofyx-blue focus:border-proofyx-blue outline-none transition-all bg-white"
-      >
-        <option value="General Inquiry">General Inquiry</option>
-        <option value="Demo Request">Demo Request</option>
-        <option value="Support">Technical Support</option>
-        <option value="Partnership">Partnership</option>
-      </select>
-    </div>
 
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <label for="phone" class="block text-sm font-bold text-neutral-900 mb-2">Phone Number (Optional)</label>
+        <input 
+          type="tel" 
+          name="phone" 
+          id="phone"
+          placeholder="+1 (555) 000-0000" 
+          class="w-full px-4 py-3 rounded-md border border-neutral-200 focus:ring-2 focus:ring-proofyx-blue focus:border-proofyx-blue outline-none transition-all"
+        />
+      </div>
+      <div>
+        <label for="topic" class="block text-sm font-bold text-neutral-900 mb-2">Topic</label>
+        <select 
+          name="topic" 
+          id="topic"
+          class="w-full px-4 py-3 rounded-md border border-neutral-200 focus:ring-2 focus:ring-proofyx-blue focus:border-proofyx-blue outline-none transition-all bg-white"
+        >
+          <option value="General Inquiry">General Inquiry</option>
+          <option value="Demo Request">Demo Request</option>
+          <option value="Support">Technical Support</option>
+          <option value="Partnership">Partnership</option>
+        </select>
+      </div>
+    </div>
+    
     <div>
       <label for="message" class="block text-sm font-bold text-neutral-900 mb-2">Message</label>
       <textarea 
@@ -58,10 +66,115 @@ import Button from './Button.astro';
       ></textarea>
     </div>
 
-    <Button type="submit" class="w-full justify-center py-4">Send Message</Button>
+    <div class="flex items-center">
+      <input 
+        type="checkbox" 
+        id="callbackRequested" 
+        name="callbackRequested" 
+        class="w-4 h-4 text-proofyx-blue border-neutral-300 rounded focus:ring-proofyx-blue"
+      />
+      <label for="callbackRequested" class="ml-2 text-sm text-neutral-600">
+        Request a callback from our team
+      </label>
+    </div>
+
+    <Button type="submit" id="submit-button" class="w-full justify-center py-4">Send Message</Button>
     
+    <div id="form-status" class="hidden text-center p-4 rounded-md"></div>
+
     <p class="text-center text-xs text-neutral-400 mt-4">
-      By submitting this form, you agree to our privacy policy.
+      By submitting this form, you agree to our <a href="/privacy" class="underline hover:text-proofyx-blue">privacy policy</a>.
     </p>
   </form>
 </div>
+
+<script>
+  const contactForm = document.getElementById('contact-form') as HTMLFormElement;
+  const submitButton = document.getElementById('submit-button') as HTMLButtonElement;
+  const statusDiv = document.getElementById('form-status');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Update UI state
+      if (submitButton) {
+        submitButton.disabled = true;
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        
+        if (statusDiv) {
+          statusDiv.classList.add('hidden');
+        }
+
+        const formData = new FormData(contactForm);
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        const payload = {
+          source: "proofyx-marketing",
+          messageType: "lead",
+          category: formData.get('topic'),
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone') || "",
+          preferredContact: formData.get('phone') ? "phone" : "email",
+          callbackRequested: formData.get('callbackRequested') === 'on',
+          subject: `Website Inquiry: ${formData.get('topic')}`,
+          message: formData.get('message'),
+          userContext: {
+            isAuthenticated: false,
+            userId: null,
+            tenantId: null,
+            orgId: null,
+            orgName: null,
+            pageUrl: window.location.href
+          },
+          metadata: {
+            ipHash: "", // Will be filled by server or remains empty
+            userAgent: navigator.userAgent,
+            utmSource: urlParams.get('utm_source') || "",
+            utmMedium: urlParams.get('utm_medium') || "",
+            utmCampaign: urlParams.get('utm_campaign') || "",
+            referrer: document.referrer
+          }
+        };
+
+        try {
+          const response = await fetch('https://intake.proofyx.com/api/v1/messages/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (response.ok) {
+            // Success
+            contactForm.reset();
+            if (statusDiv) {
+              statusDiv.textContent = 'Thank you! Your message has been sent successfully. We will get back to you soon.';
+              statusDiv.className = 'mt-4 text-center p-4 rounded-md bg-green-50 text-green-800 border border-green-200 block';
+            }
+            // Hide the form fields or just the button?
+            // Let's just keep the success message visible.
+          } else {
+            const errorData = await response.json().catch(() => ({}));
+            throw new Error(errorData.message || 'Submission failed');
+          }
+        } catch (error) {
+          console.error('Submission error:', error);
+          if (statusDiv) {
+            statusDiv.textContent = 'Sorry, there was an error sending your message. Please try again or email us directly at support@proofyx.com.';
+            statusDiv.className = 'mt-4 text-center p-4 rounded-md bg-red-50 text-red-800 border border-red-200 block';
+          }
+        } finally {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+          }
+        }
+      }
+    });
+  }
+</script>
