@@ -2,7 +2,7 @@
 title: "Before You Sign That CMMC Assessment, Read This"
 description: "What every small business executive needs to understand before signing CMMC self-assessment."
 pubDate: 2026-05-20
-category: "CMMC"
+category: "CMMC 2.0"
 tags: ["CMMC", "Cybersecurity", "Small Business", "False Claims Act", "GRC"]
 readingTime: "4 min read"
 featured: false
