@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://proofyx.com',
+  site: 'https://www.proofyx.com',
   build: {
     inlineStylesheets: 'always'
   },
