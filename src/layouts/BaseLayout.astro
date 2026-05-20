@@ -10,6 +10,7 @@ interface Props {
   seoDescription?: string;
   image?: string;
   ogType?: string;
+  author?: string;
   hideHeader?: boolean;
   hideFooter?: boolean;
   headerTransparent?: boolean;
@@ -23,6 +24,7 @@ const {
   seoDescription,
   image = "/og-image.png",
   ogType = "website",
+  author,
   hideHeader = false,
   hideFooter = false,
   headerTransparent = false,
@@ -31,8 +33,8 @@ const {
 
 const metaTitle = seoTitle || `${title} | Proofyx`;
 const metaDescription = seoDescription || description;
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const socialImageURL = new URL(image, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+const socialImageURL = new URL(image, Astro.site).href;
 ---
 
 <!doctype html>
@@ -64,6 +66,9 @@ const socialImageURL = new URL(image, Astro.site);
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={metaTitle} />
+
+    {author && <meta name="author" content={author} />}
+    {author && ogType === 'article' && <meta property="article:author" content={author} />}
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />

@@ -8,7 +8,7 @@ import Button from '../components/Button.astro';
 import Newsletter from '../components/Newsletter.astro';
 
 const { frontmatter, slug, headings = [] } = Astro.props;
-const { title, description, pubDate, category, readingTime, image, seoTitle, seoDescription } = frontmatter;
+const { title, description, pubDate, category, readingTime, image, seoTitle, seoDescription, author = "Proofyx Editorial Team" } = frontmatter;
 
 const tocHeadings = headings.filter(h => h.depth > 1 && h.depth < 4);
 
@@ -34,7 +34,8 @@ const canonicalShareURL = new URL(Astro.url.pathname, Astro.site).href;
   description={description} 
   seoTitle={seoTitle} 
   seoDescription={seoDescription}
-  image={image?.src}
+  image={typeof image === 'string' ? image : image?.src}
+  author={author}
   ogType="article"
   headerTransparent={false}
   backgroundClass="bg-[#f8f9fb]"
