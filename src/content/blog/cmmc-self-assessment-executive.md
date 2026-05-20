@@ -4,7 +4,7 @@ description: "What every small business executive needs to understand before sig
 pubDate: 2026-05-20
 category: "CMMC"
 tags: ["CMMC", "Cybersecurity", "Small Business", "False Claims Act", "GRC"]
-readingTime: "6 min read"
+readingTime: "4 min read"
 featured: false
 image: "../../assets/blog/cmmc-self-assessment-executive.png"
 seoTitle: "What Executives Must Know Before Signing a CMMC Self-Assessment | Proofyx"
