@@ -3,7 +3,7 @@ title: "Does CMMC Flow Down to Subcontractors?"
 description: "If you're a subcontractor in the defense supply chain, here's what you need to know about whether CMMC applies to you — and at what level."
 pubDate: 2026-05-25
 category: "CMMC"
-tags: ["CMMC", "Cybersecurity", "Subcontractors", "Small Business", "Defense Supply Chain"]
+tags: ["CMMC 2.0", "Cybersecurity", "Subcontractors", "Small Business", "Defense Supply Chain"]
 readingTime: "5 min read"
 featured: false
 image: "../../assets/blog/cmmc-subcontractor-flowdown.png"
